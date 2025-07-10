@@ -1,1 +1,37 @@
 @import "tailwindcss";
+
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "tailwindcss/base";
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+    /* -- COLORS -- */
+    /* Primary Colors */
+    --color-primary: #00CFFF; /* Electric Cyan */
+    --color-background: #0D1B24; /* Dark Teal/Blue-Black */
+
+    /* Secondary Colors */
+    --color-secondary: #1F3A4B; /* Steel Blue */
+    --color-text-light: #F1F1F1; /* Soft White */
+
+    /* Accent Colors */
+    --color-accent: #5A6D7A; /* Cool Gray */
+    --color-contrast: #FFFFFF; /* Snow White */
+
+    /* -- FONTS -- */
+    --font-heading: "Orbitron", sans-serif;
+    --font-body: "Orbitron", sans-serif;
+}
+
+.font-heading {
+    font-family: var(--font-heading);
+    font-weight: 400;
+}
+
+.font-body {
+    font-family: var(--font-body);
+}
