@@ -9,13 +9,6 @@
       "Courier New", monospace;
     --spacing: 0.25rem;
     --container-7xl: 80rem;
-    --text-base: 1rem;
-    --text-base--line-height: calc(1.5 / 1);
-    --text-3xl: 1.875rem;
-    --text-3xl--line-height: calc(2.25 / 1.875);
-    --text-4xl: 2.25rem;
-    --text-4xl--line-height: calc(2.5 / 2.25);
-    --font-weight-semibold: 600;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
   }
@@ -166,14 +159,8 @@
   }
 }
 @layer utilities {
-  .mx-auto {
-    margin-inline: auto;
-  }
   .mt-4 {
     margin-top: calc(var(--spacing) * 4);
-  }
-  .mb-5 {
-    margin-bottom: calc(var(--spacing) * 5);
   }
   .flex {
     display: flex;
@@ -187,8 +174,8 @@
   .w-6 {
     width: calc(var(--spacing) * 6);
   }
-  .max-w-\[720px\] {
-    max-width: 720px;
+  .max-w-7xl {
+    max-width: var(--container-7xl);
   }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
@@ -199,20 +186,11 @@
   .flex-col {
     flex-direction: column;
   }
-  .items-center {
-    align-items: center;
-  }
   .items-end {
     align-items: flex-end;
   }
   .justify-between {
     justify-content: space-between;
-  }
-  .justify-center {
-    justify-content: center;
-  }
-  .gap-2 {
-    gap: calc(var(--spacing) * 2);
   }
   .space-y-4 {
     :where(& > :not(:last-child)) {
@@ -231,48 +209,14 @@
       margin-inline-end: calc(calc(var(--spacing) * 8) * calc(1 - var(--tw-space-x-reverse)));
     }
   }
-  .px-5 {
-    padding-inline: calc(var(--spacing) * 5);
+  .bg-\[var\(--color-secondary\)\] {
+    background-color: var(--color-secondary);
   }
-  .px-12 {
-    padding-inline: calc(var(--spacing) * 12);
+  .px-4 {
+    padding-inline: calc(var(--spacing) * 4);
   }
   .py-7 {
     padding-block: calc(var(--spacing) * 7);
-  }
-  .py-20 {
-    padding-block: calc(var(--spacing) * 20);
-  }
-  .pt-24 {
-    padding-top: calc(var(--spacing) * 24);
-  }
-  .text-center {
-    text-align: center;
-  }
-  .text-3xl {
-    font-size: var(--text-3xl);
-    line-height: var(--tw-leading, var(--text-3xl--line-height));
-  }
-  .text-base {
-    font-size: var(--text-base);
-    line-height: var(--tw-leading, var(--text-base--line-height));
-  }
-  .leading-\[50px\] {
-    --tw-leading: 50px;
-    line-height: 50px;
-  }
-  .font-semibold {
-    --tw-font-weight: var(--font-weight-semibold);
-    font-weight: var(--font-weight-semibold);
-  }
-  .text-\[var\(--color-accent\)\] {
-    color: var(--color-accent);
-  }
-  .text-\[var\(--color-contrast\)\] {
-    color: var(--color-contrast);
-  }
-  .text-\[var\(--color-heading\)\] {
-    color: var(--color-heading);
   }
   .text-\[var\(--color-primary\)\] {
     color: var(--color-primary);
@@ -292,11 +236,6 @@
       display: none;
     }
   }
-  .md\:max-w-\[75\%\] {
-    @media (width >= 48rem) {
-      max-width: 75%;
-    }
-  }
   .md\:flex-row {
     @media (width >= 48rem) {
       flex-direction: row;
@@ -312,97 +251,25 @@
       justify-content: center;
     }
   }
-  .md\:text-4xl {
-    @media (width >= 48rem) {
-      font-size: var(--text-4xl);
-      line-height: var(--tw-leading, var(--text-4xl--line-height));
-    }
-  }
 }
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 :root {
   --color-primary: #00CFFF;
-  --color-heading: #0c819b;
   --color-background: #0D1B24;
   --color-secondary: #1F3A4B;
   --color-text-light: #F1F1F1;
-  --color-text-body: #CBD5E1;
   --color-accent: #5A6D7A;
-  --color-contrast: #ffffff87;
+  --color-contrast: #FFFFFF;
   --font-heading: "Orbitron", sans-serif;
-  --font-body: "Rubik", sans-serif;
+  --font-body: "Orbitron", sans-serif;
 }
-@layer utilities {
-  .font-heading {
-    font-family: var(--font-heading), sans-serif;
-  }
-  .font-body {
-    font-family: var(--font-body), sans-serif;
-  }
+.font-heading {
+  font-family: var(--font-heading);
+  font-weight: 400;
 }
-.navbar-section {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  backdrop-filter: blur(10px);
-  background: #0d1b2430;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  z-index: 100;
-}
-.hero-section {
-  background-color: #000000c9;
-  background-image: url("https://images.unsplash.com/photo-1506260408121-e353d10b87c7");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-blend-mode: darken;
-}
-.logo-animation {
-  cursor: pointer;
-}
-.logo-animation:hover {
-  animation: jump 2s ease-in-out infinite;
-}
-@keyframes jump {
-  0% {
-    transform: translateY(0);
-  }
-  25% {
-    transform: translateY(-10px);
-  }
-  50% {
-    transform: translateY(0);
-  }
-  75% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-.underline-hover {
-  position: relative;
-  padding-bottom: 2px;
-  width: auto;
-  transition: 0.3s;
-}
-.underline-hover:hover {
-  transform: scale(1.2);
-  transition: 0.3s;
-}
-.underline-hover::before {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--color-accent);
-  transition: 0.3s;
-}
-.underline-hover:hover::before {
-  width: 100%;
+.font-body {
+  font-family: var(--font-body);
 }
 @property --tw-rotate-x {
   syntax: "*";
@@ -434,14 +301,6 @@
   inherits: false;
   initial-value: 0;
 }
-@property --tw-leading {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-font-weight {
-  syntax: "*";
-  inherits: false;
-}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
@@ -452,8 +311,6 @@
       --tw-skew-y: initial;
       --tw-space-y-reverse: 0;
       --tw-space-x-reverse: 0;
-      --tw-leading: initial;
-      --tw-font-weight: initial;
     }
   }
 }
