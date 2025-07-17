@@ -38,16 +38,16 @@
     }
 }
 
-/* CLASSES */
-
-.main-section {
-    /* background: linear-gradient(0deg,rgba(184, 218, 252, 1) 0%, rgba(255, 255, 255, 1) 100%); */
+body {
     background-image: url("../images/background/bg_1.jpg");
     background-size: cover;
 
     background-position: center center;
     background-attachment: fixed;
 }
+
+
+/* CLASSES */
 
 .navbar-section {
     width: 100%;
@@ -68,11 +68,46 @@
     background-blend-mode: darken;
 }
 
-.card {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(10px);
+.action-section {
+    position: relative;
+    background-color: #000000c9;
+    background-image: url("https://images.unsplash.com/photo-1500964757637-c85e8a162699");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-blend-mode: darken;
+}
+
+.footer-section {
+    backdrop-filter: blur(2px);
+    background: #333333c4;
     border-radius: 0.5rem;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border: 1px solid rgba(255, 255, 255, 0.47);
+    padding: 20px;
+}
+
+.footer-section a {
+    color: var(--color-text-light);
+    transition: 0.3s;
+    font-size: 1.1rem;
+}
+
+.footer-section a:hover {
+    color: var(--color-heading);
+    transition: 0.3s;
+}
+
+.footer-section p {
+    color: var(--color-contrast);
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(3px);
+    border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border: 1px solid rgba(255, 255, 255, 0.47);
     padding: 20px;
 }
 
@@ -85,24 +120,26 @@
     position: absolute;
 } */
 
-.card-divs .card:first-child {
+@media (min-width: 768px) {
+    .card-divs .card:first-child {
     transform: rotate(-5deg) translateX(50px);
-}
+    }
 
-.card-divs .card:last-child {
-    transform: rotate(5deg) translateX(-50px);
-}
+    .card-divs .card:last-child {
+        transform: rotate(5deg) translateX(-50px);
+    }
 
-.card-divs .card {
-    transition: 0.3s;
-}
+    .card-divs .card {
+        transition: 0.3s;
+    }
 
-.card-divs .card:hover {
-    cursor: pointer;
-    transform: rotate(0) translateX(0);
-    transform: scale(1.1);
-    transition: 0.3s;
-    z-index: 1000;
+    .card-divs .card:hover {
+        cursor: pointer;
+        transform: rotate(0) translateX(0);
+        transform: scale(1.1);
+        transition: 0.3s;
+        z-index: 1000;
+    }
 }
 
 /* ANIMATION CLASSES */
@@ -136,8 +173,6 @@
         transform: translateY(0);
     }
 }
-
-
 
 .underline-hover {
     position: relative;
