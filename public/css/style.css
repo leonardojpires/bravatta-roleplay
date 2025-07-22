@@ -46,7 +46,6 @@ body {
     background-attachment: fixed;
 }
 
-
 /* CLASSES */
 
 .navbar-section {
@@ -199,4 +198,34 @@ body {
 
 .underline-hover:hover::before {
     width: 100%;
+}
+
+/* TAILWIND CSS CLASSES */
+
+.navbar {
+    @apply flex justify-between px-12 py-7 text-[var(--color-heading)] md:justify-center;
+}
+
+.h3 {
+    @apply text-2xl text-[var(--color-heading)] font-bold mb-3
+}
+
+.floating-icons {
+    @apply hidden md:block absolute w-[100px] pointer-events-none;
+}
+
+.input-label {
+    @apply block text-lg text-[var(--color-text-light)] font-medium mb-1
+}
+
+.input {
+    @apply w-full px-4 py-2 bg-white/20 border-white/30 placeholder-[var(--color-heading)]/20 text-[var(--color-background)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]
+}
+
+/* WEBKIT */
+
+input:-webkit-autofill {
+  box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0.1) inset !important;
+  -webkit-text-fill-color: var(--color-text-white) !important;
+  transition: background-color 5000s ease-in-out 0s;
 }

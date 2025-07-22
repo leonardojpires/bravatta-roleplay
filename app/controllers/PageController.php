@@ -12,4 +12,12 @@ class PageController {
     public function about() {
         echo "Welcome to the about page!";
     }
+
+    public function noticias() {
+        $this->view('noticias');
+    }
+
+    public function auth() {
+        $this->view('auth/auth');
+    }
 }

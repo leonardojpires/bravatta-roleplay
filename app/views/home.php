@@ -11,8 +11,8 @@
     <script src="https://unpkg.com/feather-icons"></script>
     </head>
     <body>
-        <header class="navbar-section">
-            <nav class="flex justify-between px-12 py-7 text-[var(--color-heading)] font-heading md:justify-center">
+        <header class="navbar-section Z-1000">
+            <nav class="navbar font-heading">
 
                 <div class="md:hidden">
                     <a href="/home"><img src="./images/logo/logo.png" alt="Bravatta Logo" width="75" class="cursor-pointer"></a>
@@ -27,8 +27,8 @@
                     <div class="hidden flex-col space-y-4 mt-4 md:hidden md:mt-0" id="mobile-menu">
                         <a href="/sobre" class="underline-hover">Sobre Nós</a>
                         <a href="/regras" class="underline-hover">Regras</a>
-                        <a href="/sobre" class="underline-hover">Sobre Nós</a>
-                        <a href="/regras" class="underline-hover">Regras</a>
+                        <a href="/noticias" class="underline-hover">Notícias</a>
+                        <a href="/contacto" class="underline-hover">Contacto</a>
                     </div>
                 </div>
 
@@ -52,6 +52,7 @@
 
         <main class="main-section">
 
+        <!-- HERO SECTION -->
             <section class="hero-section pt-24">
                 <div class="flex flex-col justify-center max-w-[720px] px-5 py-20 mx-auto items-center">
                     <h1 class="text-3xl md:text-4xl text-center leading-[50px] font-heading font-semibold text-[var(--color-primary)] mb-5 md:max-w-[75%]">Bem-Vindo(a) ao Bravatta Roleplay</h1>
@@ -63,12 +64,15 @@
                 </div>
             </section>
 
+            
+        <!-- INFORMATIONS SECTION -->
+            <!-- FIRST CARD -->
             <section class="mt-15">
                 <div class="card max-w-[720px] mx-auto">
                     <img 
                         src="./images/icons/computer.png" 
                         alt="" 
-                        class="hidden md:block absolute right-[-50px] top-[-50px] rotate-[-10deg] w-[100px]"
+                        class="floating-icons right-[-50px] top-[-50px] rotate-[-10deg]"
                         data-rellax-speed="1"
                     >
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -84,12 +88,13 @@
                 </div>
             </section>
 
+            <!-- SECOND CARD -->
             <section class="mt-15">
                 <div class="card max-w-[720px] mx-auto">
                     <img 
                         src="./images/icons/police_hat.png" 
                         alt="" 
-                        class="hidden md:block absolute left-[-50px] top-[20px] rotate-[-10deg] w-[100px]"
+                        class="floating-icons left-[-50px] top-[20px] rotate-[-10deg]"
                         data-rellax-speed="1"
                     >
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -105,41 +110,47 @@
                 </div>
             </section>
 
+        <!-- FEATURES SECTION -->
             <section class="mt-15">
                 <div class="max-w-[1200px] mx-auto">
                     <h2 class="text-3xl text-[var(--color-secondary)] text-center font-heading mb-5">O que podes fazer?</h2>
                     <div class="card-divs flex flex-col md:flex-row gap-10">
+
                         <div class="card flex flex-col !py-10">
                             <img src="https://dummyimage.com/600x300/000/fff" class="mb-5" alt="">
-                            <h3 class="text-2xl text-[var(--color-heading)] font-body font-bold mb-3">Tópico 1</h3>
+                            <h3 class="h3 font-body">Tópico 1</h3>
                             <p class="font-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus vitae velit expedita veniam esse dolorem error, explicabo distinctio blanditiis nostrum quae facere sequi eum omnis! Saepe dolor laudantium soluta quo.</p>
                         </div>
+
+                        <div class="card flex flex-col !py-10 z-50">
+                            <img src="https://dummyimage.com/600x300/000/fff" class="mb-5" alt="">
+                            <h3 class="h3 font-body">Tópico 2</h3>
+                            <p class="font-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus vitae velit expedita veniam esse dolorem error, explicabo distinctio blanditiis nostrum quae facere sequi eum omnis! Saepe dolor laudantium soluta quo.</p>
+                        </div>
+
                         <div class="card flex flex-col !py-10">
                             <img src="https://dummyimage.com/600x300/000/fff" class="mb-5" alt="">
-                            <h3 class="text-2xl text-[var(--color-heading)] font-body font-bold mb-3">Tópico 2</h3>
+                            <h3 class="h3 font-body">Tópico 3</h3>
                             <p class="font-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus vitae velit expedita veniam esse dolorem error, explicabo distinctio blanditiis nostrum quae facere sequi eum omnis! Saepe dolor laudantium soluta quo.</p>
                         </div>
-                        <div class="card flex flex-col !py-10">
-                            <img src="https://dummyimage.com/600x300/000/fff" class="mb-5" alt="">
-                            <h3 class="text-2xl text-[var(--color-heading)] font-body font-bold mb-3">Tópico 3</h3>
-                            <p class="font-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus vitae velit expedita veniam esse dolorem error, explicabo distinctio blanditiis nostrum quae facere sequi eum omnis! Saepe dolor laudantium soluta quo.</p>
-                        </div>
+
                     </div>
                 </div>
             </section>
 
+        <!-- ACTION SECTION -->
             <section class="action-section mt-15 py-20">
                 <div class="w-full max-w-[720px] mx-auto flex flex-col justify-center items-center">
                     <img
                         src="./images/icons/lego.png" 
                         alt="" 
-                        class="hidden md:block absolute left-[350px] top-[550px] rotate-[-10deg] w-[100px]"
+                        class="floating-icons left-[350px] top-[550px] rotate-[-10deg]"
                         data-rellax-speed="2"
                     >
                     <img
                         src="./images/icons/hammer_phone.png" 
                         alt="" 
-                        class="hidden md:block absolute right-[250px] top-[600px] rotate-[-10deg] w-[100px]"
+                        class="floating-icons right-[250px] top-[600px] rotate-[-10deg]"
                         data-rellax-speed="2"
                     >
                     <span class="text-4xl text-[var(--color-primary)] font-heading mb-5">Junta-te a Nós</span>
@@ -150,6 +161,7 @@
 
         </main>
 
+    <!-- FOOTER SECTION -->
         <?php require_once __DIR__ . "/components/footer.php"; ?>
 
     </body>
