@@ -54,7 +54,7 @@
 
             <section class="pt-24">
                 <div class="flex flex-col justify-center max-w-[720px] px-5 py-20 mx-auto items-center">
-                    <form action="" class="flex flex-col backdrop-blur-md bg-white/10 border border-white/30 rounded-2xl p-8 w-full max-w-md shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]">
+                    <form action="/login" method="POST" class="flex flex-col backdrop-blur-md bg-white/10 border border-white/30 rounded-2xl p-8 w-full max-w-md shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]">
 
                         <h2 class="text-4xl text-[var(--color-primary)] font-heading font-bold text-center mb-6">Bem-vindo, staff</h2>
 

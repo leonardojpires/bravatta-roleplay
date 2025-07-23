@@ -20,4 +20,20 @@ class PageController {
     public function auth() {
         $this->view('auth/auth');
     }
+
+    public function login() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            /* Loads the classes that will be used */
+            require_once __DIR__ . '/AuthController.php';
+            require_once __DIR__ . '/../models/Admin.php';
+            /* Creates a new PDO object with connection to the database */
+            $pdo = new PDO('mysql:host=localhost;dbname=bravatta', 'root', 'root');
+
+            /* Creates an instance of the AuthController */
+            $auth = new AuthController($pdo);
+
+            /* Logins the admin */
+            $auth->login();
+        }
+    }
 }

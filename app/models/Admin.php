@@ -23,6 +23,10 @@ class Admin {
         return $this->token;
     }
 
+    public function getRole(): string {
+        return $this->role;
+    }
+
     public function getCreatedAt(): string {
         return $this->createdAt;
     }

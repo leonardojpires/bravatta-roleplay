@@ -1,0 +1,1 @@
+ALTER TABLE admins ADD column role VARCHAR(50) NOT NULL DEFAULT "publisher";

@@ -26,7 +26,7 @@ class Router {
         // Creates an instance of the PageController
         $controller = new PageController();
 
-        $allowed_pages = ['home', 'about', 'rules', 'noticias', 'contact', 'auth'];
+        $allowed_pages = ['home', 'about', 'rules', 'noticias', 'contact', 'auth', 'login'];
 
         // Verifies if he requested page is in the allowed pages array, and if the method exists in the controller
         // Ex: if there's a home() method, then it will be called
