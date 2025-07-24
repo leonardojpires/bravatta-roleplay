@@ -26,7 +26,7 @@ class Router {
         // Creates an instance of the PageController
         $controller = new PageController();
 
-        $allowed_pages = ['home', 'about', 'rules', 'noticias', 'contact', 'auth', 'login'];
+        $allowed_pages = ['home', 'about', 'rules', 'noticias', 'contact', 'auth', 'login', 'dashboard', 'admin'];
 
         // Verifies if he requested page is in the allowed pages array, and if the method exists in the controller
         // Ex: if there's a home() method, then it will be called
@@ -37,6 +37,13 @@ class Router {
             // If the method does'nt exists, return a 404 error and display a "Page not found" message
             http_response_code(404);
             echo "Page not found.";
+        }
+
+        if ($page === 'admin' && $param === 'create-publisher') {
+            require_once __DIR__ . '/../controllers/AdminController.php';
+            $pdo = $pdo = new PDO('mysql:host=localhost;dbname=bravatta', 'root', 'root');
+            $adminController = new AdminController($pdo);
+            $adminController->createPublisher();
         }
     }
 }

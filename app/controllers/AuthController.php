@@ -42,8 +42,11 @@ class AuthController {
         }       
 
         session_start();
-        $_SESSION['admin_id'] = $admin->getId();
-        $_SESSION['admin_role'] = $admin->getRole();
+        $_SESSION['admin'] = [
+            'id' => $admin->getId(),
+            'token' => $admin->getToken(),
+            'role' => $admin->getRole()
+        ];
 
         if ($admin->getRole() === 'admin') {
             header('Location: /home');

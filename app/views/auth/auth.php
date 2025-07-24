@@ -63,7 +63,6 @@
                             <input 
                             type="password" 
                             name="password"
-                            placeholder="********"
                             required
                             class="input font-body">
                         </div>

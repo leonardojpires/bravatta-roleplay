@@ -36,4 +36,14 @@ class PageController {
             $auth->login();
         }
     }
+
+    public function dashboard() {
+        if (isset($_SESSION['admin']) && $_SESSION['admin']['role'] === 'admin') {
+            $this->view('admin/dashboard');
+        } else {
+            http_response_code(403);
+            echo "Acesso negado! Apena administradores podem aceder ao dashboard.";
+            exit;
+        }
+    }
 }
