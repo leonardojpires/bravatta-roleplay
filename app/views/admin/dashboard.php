@@ -92,7 +92,7 @@
                                 <td><?= htmlspecialchars($publisher['token']) ?></td>
                                 <td><?= htmlspecialchars($publisher['created_at']) ?></td>
                                 <td>
-                                    <form action="" method="POST">
+                                    <form action="/admin/delete-publisher" method="POST">
                                         <input type="hidden" name="id" value="<?= $publisher['id']?>">
                                         <input type="submit" name="delete_publisher" value="X">
                                     </form>
