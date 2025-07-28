@@ -1,7 +1,5 @@
 <?php 
     session_start();
-/*     var_dump($_SESSION);
-    exit; */
 ?>
 
 <!doctype html>
@@ -72,6 +70,37 @@
                 <form action="/admin/create-publisher" method="POST">
                     <input type="submit" name="submit" value="Gerar um novo publisher" class="w-full bg-[var(--color-primary)] hover:bg-[var(--color-heading)] text-[var(--color-text-light)] font-body py-2 rounded-lg transition-colors shadow-md cursor-pointer">
                 </form>
+            </div>
+        </section>
+
+        <section>
+            <div>
+                <h2>Todos os publishers</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Token</th>
+                            <th>Criado a</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach($publishers as $publisher): ?>
+                            <tr>
+                                <td><?= htmlspecialchars($publisher['id']) ?></td>
+                                <td><?= htmlspecialchars($publisher['token']) ?></td>
+                                <td><?= htmlspecialchars($publisher['created_at']) ?></td>
+                                <td>
+                                    <form action="" method="POST">
+                                        <input type="hidden" name="id" value="<?= $publisher['id']?>">
+                                        <input type="submit" name="delete_publisher" value="X">
+                                    </form>
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                    </tbody>
+                </table>
             </div>
         </section>
 

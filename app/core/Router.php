@@ -1,6 +1,16 @@
 <?php
 
+require_once __DIR__ . '/../controllers/AdminController.php';
+$pdo = new PDO('mysql:host=localhost;dbname=bravatta', 'root', 'root');
+$adminController = new AdminController($pdo);
+
 class Router {
+    private $adminController;
+
+    public function __construct(AdminController $adminController) {
+        $this->adminController = $adminController;
+    }
+
     public function handleRequest() {
         
         // Receives the URL path (ex: '/about', '/news/123')
@@ -28,6 +38,18 @@ class Router {
 
         $allowed_pages = ['home', 'about', 'rules', 'noticias', 'contact', 'auth', 'login', 'dashboard', 'admin'];
 
+        switch ("$page/$param") {
+            case 'admin/create-publisher':
+                $this->adminController->createPublisher();
+                break;
+            case 'admin/delete-publisher':
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $this->adminController->deletePublisher();
+                    break;
+                }
+                break;
+        }
+        
         // Verifies if he requested page is in the allowed pages array, and if the method exists in the controller
         // Ex: if there's a home() method, then it will be called
         if (in_array($page, $allowed_pages) && method_exists($controller, $page)) {
@@ -39,11 +61,5 @@ class Router {
             echo "Page not found.";
         }
 
-        if ($page === 'admin' && $param === 'create-publisher') {
-            require_once __DIR__ . '/../controllers/AdminController.php';
-            $pdo = $pdo = new PDO('mysql:host=localhost;dbname=bravatta', 'root', 'root');
-            $adminController = new AdminController($pdo);
-            $adminController->createPublisher();
-        }
     }
 }

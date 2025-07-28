@@ -34,4 +34,23 @@ class AdminController {
             exit;
         }
     }
+
+    public function getAllPublishers() {
+        $sql = "SELECT * FROM admins WHERE role = 'publisher' ORDER BY created_at DESC";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function deletePublisher() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = $_POST['id'];
+            $sql = "DELETE FROM admins WHERE id = :id AND role = 'publisher'";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute(['id' => $id]);
+
+            header('Location: /dashboard');
+            exit;
+        }
+    }
 }

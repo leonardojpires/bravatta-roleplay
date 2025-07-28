@@ -1,7 +1,8 @@
 <?php
 
 class PageController {
-    private function view($name) {
+    private function view($name, $data = []) {
+        extract($data);
         require_once __DIR__ . '/../views/' . $name . '.php';
     }
     
@@ -39,7 +40,11 @@ class PageController {
 
     public function dashboard() {
         if (isset($_SESSION['admin']) && $_SESSION['admin']['role'] === 'admin') {
-            $this->view('admin/dashboard');
+            $pdo = new PDO('mysql:host=localhost;dbname=bravatta', 'root', 'root');
+            $adminController = new AdminController($pdo);
+            $publishers = $adminController->getAllPublishers();
+
+            $this->view('admin/dashboard', ['publishers' => $publishers]);
         } else {
             http_response_code(403);
             echo "Acesso negado! Apena administradores podem aceder ao dashboard.";
