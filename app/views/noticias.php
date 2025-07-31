@@ -72,7 +72,7 @@ $newsList = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
         </section>
 
-        <section class="max-w-[720px] mx-auto mt-15">
+        <section class="max-w-[720px] mx-auto mt-15 px-3">
 
             <?php foreach($newsList as $news): ?>
 
