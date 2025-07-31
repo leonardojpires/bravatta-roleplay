@@ -2,7 +2,7 @@
 
 $pdo = new PDO('mysql:host=localhost;dbname=bravatta', 'root', 'root');
 
-$sql = file_get_contents(__DIR__ . '/migrations/add_role_column_to_admin_table.sql');
+$sql = file_get_contents(__DIR__ . '/migrations/change_published_at_column_type.sql');
 
 $pdo->exec($sql);
 

@@ -1,3 +1,10 @@
+<?php
+
+$pdo = new PDO('mysql:host=localhost;dbname=bravatta', 'root', 'root');
+$stmt = $pdo->query("SELECT * FROM news ORDER BY published_at DESC");
+$newsList = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+?>
 
 <!doctype html>
 <html>
@@ -66,19 +73,25 @@
         </section>
 
         <section class="max-w-[720px] mx-auto mt-15">
+
+            <?php foreach($newsList as $news): ?>
+
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
                     <div class="flex justify-center items-center">
-                        <img src="https://dummyimage.com/300x300/000/fff" alt="">
+                        <img src="<?= htmlspecialchars($news['image_path']) ?>" alt="<?= htmlspecialchars($news['title']) ?>">
                     </div>
                     <div class="flex flex-col items-center md:items-start">
-                        <h2 class="text-3xl text-[var(--color-secondary)] text-center font-heading mb-3 md:text-left">Notícia 1</h2>
-                        <p class="text-justify mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos possimus ipsam quidem temporibus laboriosam, sit sint consequatur non quod aut hic inventore, facere, laudantium nam? Fugiat maiores amet repudiandae aut?</p>
+                        <h2 class="text-3xl text-[var(--color-secondary)] text-center font-heading mb-3 md:text-left"><?= htmlspecialchars($news['title']) ?></h2>
+                        <p class="text-justify mb-5"><?= htmlspecialchars($news['description']) ?></p>
                         <div class="flex gap-2">
                             <i data-feather="users" class="w-6 h-6 text-[var(--color-primary)]"></i>
-                            <span class="text-[var(--color-accent)] font-body">+ 100 jogadores</span>
+                            <span class="text-[var(--color-accent)] font-body"><?= htmlspecialchars($news['published_at']) ?></span>
                         </div>
                     </div>
                 </div>
+
+            <?php endforeach; ?>
+
         </section>
 
     </main>

@@ -38,7 +38,7 @@ class NewsController {
         }
         
         $imagePath = '/uploads/' . $imageName;
-        $published_at = date('Y-m-d H:i:s');
+        $published_at = date('Y-m-d');
 
         $sql = "INSERT INTO news (title, description, image_path, published_at) VALUES (?, ?, ?, ?)";
         $stmt = $this->pdo->prepare($sql);
