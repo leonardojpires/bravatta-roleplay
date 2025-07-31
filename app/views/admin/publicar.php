@@ -64,7 +64,7 @@
 
             <section class="w-full">
                 <div class="flex flex-col backdrop-blur-md bg-white/10 border border-white/30 rounded-2xl p-8 w-full shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]">
-                    <form action="" class="flex flex-col gap-2">
+                    <form action="/admin/publish-new" method="POST" enctype="multipart/form-data" class="flex flex-col gap-2">
                         <label for="title" class="input-label font-body">Título da Notícia</label>
                         <input type="text" name="title" id="title" class="input font-body">
 
@@ -77,7 +77,7 @@
                                 </svg>
                                 <span class="text-[var(--color-text-light)] font-body">Escolher Imagem</span>
                         </label>
-                        <input type="file" name="image" id="image" class="hidden">
+                        <input type="file" name="image_path" id="image" class="hidden">
 
                         <input type="submit" value="Publicar" class="input-submit font-body mt-5">
                     </form>

@@ -1,14 +1,18 @@
 <?php
 
 require_once __DIR__ . '/../controllers/AdminController.php';
+require_once __DIR__ . '/../controllers/NewsController.php';
 $pdo = new PDO('mysql:host=localhost;dbname=bravatta', 'root', 'root');
 $adminController = new AdminController($pdo);
+$newsController = new NewsController($pdo);
 
 class Router {
     private $adminController;
+    private $newsController;
 
-    public function __construct(AdminController $adminController) {
+    public function __construct(AdminController $adminController, NewsController $newsController) {
         $this->adminController = $adminController;
+        $this->newsController = $newsController;
     }
 
     public function handleRequest() {
@@ -45,6 +49,11 @@ class Router {
             case 'admin/delete-publisher':
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $this->adminController->deletePublisher();
+                    break;
+                }
+            case 'admin/publish-new':
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $this->newsController->createNew();
                     break;
                 }
             case '/logout':
