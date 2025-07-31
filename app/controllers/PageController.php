@@ -58,4 +58,14 @@ class PageController {
             exit;
         }
     }
+
+    public function publicar() {
+        if (isset($_SESSION['admin']) && $_SESSION['admin']['role'] === 'admin' || $_SESSION['admin']['role'] === 'publisher') {
+            $this->view('admin/publicar');
+        } else {
+            http_response_code(403);
+            echo "Acesso negado! Apenas administradores ou publicadores podem publicar notícias.";
+            exit;
+        }
+    }
 }

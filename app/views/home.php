@@ -17,14 +17,12 @@
 </head>
 <body>
 
+    <?php 
+        require_once __DIR__ . '/admin/admin_navbar.php';
+    ?>
+
     <header class="navbar-section Z-1000">
         <nav class="navbar font-heading">
-
-        <?php 
-            if (isset($_SESSION['admin']) && $_SESSION['admin']['role'] === 'admin') {
-                require_once __DIR__ . '/admin/admin_navbar.php';
-            }
-        ?>
 
             <div class="md:hidden">
                 <a href="/home"><img src="./images/logo/logo.png" alt="Bravatta Logo" width="75" class="cursor-pointer"></a>

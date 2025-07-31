@@ -222,6 +222,15 @@ body {
     @apply w-full px-4 py-2 bg-white/20 border-white/30 placeholder-[var(--color-heading)]/20 text-[var(--color-background)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]
 }
 
+.input-submit {
+    @apply w-full bg-[var(--color-primary)] hover:bg-[var(--color-heading)] text-[var(--color-text-light)] py-2 rounded-lg transition-colors shadow-md cursor-pointer
+}
+
+.admin-links {
+    @apply flex justify-center items-center bg-[var(--color-primary)]/50 rounded-full w-12 h-12 cursor-pointer;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
 /* WEBKIT */
 
 input:-webkit-autofill {
