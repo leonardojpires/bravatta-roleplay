@@ -15,7 +15,7 @@
 </head>
 <body class="!bg-gradient-to-br from-[#0D1B24] to-[#1F3A4B]">
 
-    <header class="navbar-section Z-1000">
+    <header class="navbar-section z-1000">
         <nav class="navbar font-heading">
 
         <?php 
@@ -62,39 +62,41 @@
 
     <main class="main-section pt-48 max-w-[720px] px-5 py-20 mx-auto flex flex-col items-center">
 
-        <h1 class="text-5xl text-[var(--color-primary)] font-heading mb-5">Dashboard</h1>
+        <h1 class="text-5xl text-[var(--color-primary)] font-heading mb-10">Dashboard</h1>
 
-        <section>
-            <div class="flex flex-col backdrop-blur-md bg-white/10 border border-white/30 rounded-2xl p-8 w-full max-w-md shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]">
+        <section class="w-full">
+            <div class="flex flex-col backdrop-blur-md bg-white/10 border border-white/30 rounded-2xl p-8 w-full shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]">
                 <h2 class="text-2xl text-[var(--color-text-light)] font-body text-center mb-3">Criar um novo publisher</h2>
-                <form action="/admin/create-publisher" method="POST">
+                <form action="/admin/create-publisher" method="POST" class="flex flex-col gap-2">
+                    <label for="publisher_password" class="input-label font-body !mb-0">Define a password</label>
+                    <input type="text" name="publisher_password" id="publisher_password" required min="8" class="input font-body mb-3">
                     <input type="submit" name="submit" value="Gerar um novo publisher" class="w-full bg-[var(--color-primary)] hover:bg-[var(--color-heading)] text-[var(--color-text-light)] font-body py-2 rounded-lg transition-colors shadow-md cursor-pointer">
                 </form>
             </div>
         </section>
 
-        <section>
-            <div>
-                <h2>Todos os publishers</h2>
-                <table>
-                    <thead>
+        <section class="mt-15 w-full">
+            <div class="flex flex-col backdrop-blur-md bg-white/10 border border-white/30 rounded-2xl p-8 w-full shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]">
+                <h2 class="text-2xl text-[var(--color-text-light)] font-body text-center mb-3">Todos os publishers</h2>
+                <table class="min-w-full text-left text-sm text-white">
+                    <thead class="text-sm uppercase tracking-wider text-white/70 border-b border-white/30">
                         <tr>
-                            <th>ID</th>
-                            <th>Token</th>
-                            <th>Criado a</th>
-                            <th>Eliminar</th>
+                            <th class="px-6 py-4">ID</th>
+                            <th class="px-6 py-4">Token</th>
+                            <th class="px-6 py-4">Criado a</th>
+                            <th class="px-6 py-4">Eliminar</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="divide-y divide-white/10">
                         <?php foreach($publishers as $publisher): ?>
-                            <tr>
-                                <td><?= htmlspecialchars($publisher['id']) ?></td>
-                                <td><?= htmlspecialchars($publisher['token']) ?></td>
-                                <td><?= htmlspecialchars($publisher['created_at']) ?></td>
-                                <td>
-                                    <form action="/admin/delete-publisher" method="POST">
+                            <tr class="hover:bg-white/5 transition">
+                                <td class="px-6 py-4"><?= htmlspecialchars($publisher['id']) ?></td>
+                                <td class="px-6 py-4"><?= htmlspecialchars($publisher['token']) ?></td>
+                                <td class="px-6 py-4"><?= htmlspecialchars($publisher['created_at']) ?></td>
+                                <td class="px-6 max-w-[200px] py-4 overflow-x-auto whitespace-nowrap scrollbar-thin scrollbar-thumb-white/30 scrollbar-track-transparent">
+                                    <form action="/admin/delete-publisher" method="POST" class="text-center">
                                         <input type="hidden" name="id" value="<?= $publisher['id']?>">
-                                        <input type="submit" name="delete_publisher" value="X">
+                                        <input type="submit" name="delete_publisher" value="X" class="text-red-400 hover:text-red-600 font-bold cursor-pointer bg-transparent border-none transition">
                                     </form>
                                 </td>
                             </tr>

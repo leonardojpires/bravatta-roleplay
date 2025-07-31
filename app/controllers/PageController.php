@@ -38,6 +38,13 @@ class PageController {
         }
     }
 
+    public function logout() {
+        require_once __DIR__ . '/AdminController.php';
+        $pdo = $pdo = new PDO('mysql:host=localhost;dbname=bravatta', 'root', 'root');
+        $adminController = new AdminController($pdo);
+        $adminController->logout();
+    }
+
     public function dashboard() {
         if (isset($_SESSION['admin']) && $_SESSION['admin']['role'] === 'admin') {
             $pdo = new PDO('mysql:host=localhost;dbname=bravatta', 'root', 'root');
@@ -47,7 +54,7 @@ class PageController {
             $this->view('admin/dashboard', ['publishers' => $publishers]);
         } else {
             http_response_code(403);
-            echo "Acesso negado! Apena administradores podem aceder ao dashboard.";
+            echo "Acesso negado! Apenas administradores podem aceder ao dashboard.";
             exit;
         }
     }

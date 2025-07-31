@@ -17,8 +17,14 @@ class AdminController {
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $token = bin2hex(random_bytes(4));
-            $password = bin2hex(random_bytes(4));
+            $password = $_POST['publisher_password'] ?? '';
+
+            if (strlen($password) < 8) {
+                echo "A password deve ter pelo menos 8 caracteres!";
+                exit;
+            }
+
+            $token = bin2hex(random_bytes(16));            
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
             $sql = "INSERT INTO admins (token, password, role, created_at) VALUES (:token, :password, 'publisher', NOW())";
@@ -53,4 +59,14 @@ class AdminController {
             exit;
         }
     }
+
+    public function logout() {
+        session_start();
+        session_unset();
+        session_destroy();
+
+        header('Location: /auth');
+        exit;
+    }
+
 }
