@@ -46,5 +46,23 @@ class NewsController {
 
         header('Location: /noticias');
         exit;
-     }
+    }
+
+    function deleteNews() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['news_id'])) {
+            $id = $_POST['news_id'];
+
+            $sql = "DELETE FROM news WHERE id = :id";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute(['id' => $id]);
+
+            $_SESSION['message'] = 'Notícia eliminada com sucesso!';
+
+            header('Location: /noticias');
+            exit;
+        } else {
+            header('Location: /noticias');
+            exit;
+        }
+    }
 }

@@ -51,9 +51,14 @@ class Router {
                     $this->adminController->deletePublisher();
                     break;
                 }
-            case 'admin/publish-new':
+            case 'admin/publish-news':
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $this->newsController->createNew();
+                    break;
+                }
+            case 'admin/delete-news':
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $this->newsController->deleteNews();
                     break;
                 }
             case '/logout':

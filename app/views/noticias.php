@@ -83,10 +83,18 @@ $newsList = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <div class="flex flex-col items-center md:items-start">
                         <h2 class="text-3xl text-[var(--color-secondary)] text-center font-heading mb-3 md:text-left"><?= htmlspecialchars($news['title']) ?></h2>
                         <p class="text-justify mb-5"><?= htmlspecialchars($news['description']) ?></p>
-                        <div class="flex gap-2">
+                        <div class="flex gap-2 mb-5">
                             <i data-feather="users" class="w-6 h-6 text-[var(--color-primary)]"></i>
                             <span class="text-[var(--color-accent)] font-body"><?= htmlspecialchars($news['published_at']) ?></span>
                         </div>
+
+                        <!-- DELETE NEWS BUTTON -->
+                        <?php if (isset($_SESSION['admin']) && $_SESSION['admin']['role'] === 'admin' || $_SESSION['admin']['role'] === 'publisher'): ?>
+
+                            <button class="open-delete-modal px-4 py-2 bg-[var(--color-secondary)] hover:bg-[var(--color-heading)] text-[var(--color-text-light)] transition rounded-lg cursor-pointer" data-id="<?= $news['id']; ?>">Apagar notícia</button>
+
+                        <?php endif; ?>
+
                     </div>
                 </div>
 
@@ -96,7 +104,9 @@ $newsList = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     </main>
 
-<!-- FOOTER SECTION -->
+    <?php require_once __DIR__ . '/admin/modals/delete_news.php' ?>
+
+    <!-- FOOTER SECTION -->
     <?php require_once __DIR__ . "/components/footer.php"; ?>
 
 </body>
@@ -104,6 +114,25 @@ $newsList = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const rellax = new Rellax('[data-rellax-speed]');
+
+        const deleteButtons = document.querySelectorAll('.open-delete-modal');
+        const deleteModal = document.getElementById('deleteNewsModal');
+        const closeModalButton = document.getElementById('closeNewsModal');
+        const hiddenInput = document.getElementById('delete-news-id');
+        
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const newsId = button.getAttribute('data-id');
+                hiddenInput.value = newsId;
+                deleteModal.classList.remove('hidden');
+            });
+        });
+
+        closeModalButton.addEventListener('click', () => {
+            deleteModal.classList.add('hidden');
+        });
+
     });
+    
 </script>
 </html>
