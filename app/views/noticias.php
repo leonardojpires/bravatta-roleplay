@@ -74,6 +74,7 @@ $newsList = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         <section class="max-w-[720px] mx-auto mt-15 px-3">
 
+        <!-- NEWS -->
             <?php foreach($newsList as $news): ?>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">

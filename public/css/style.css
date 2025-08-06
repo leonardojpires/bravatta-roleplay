@@ -137,7 +137,7 @@ body {
         transform: rotate(0) translateX(0);
         transform: scale(1.1);
         transition: 0.3s;
-        z-index: 1000;
+        z-index: 100;
     }
 }
 

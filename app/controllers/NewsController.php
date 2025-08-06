@@ -8,6 +8,8 @@ class NewsController {
     }
 
     function createNew() {
+        session_start();
+
         $title = $_POST['title'] ?? '';
         $description = $_POST['description'] ?? '';
         $image = $_FILES['image_path'] ?? null;
@@ -44,7 +46,9 @@ class NewsController {
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$title, $description, $imagePath, $published_at]);
 
-        header('Location: /noticias');
+        $_SESSION['success'] = 'Notícia publicada com sucesso!';
+
+        header('Location: /publicar');
         exit;
     }
 

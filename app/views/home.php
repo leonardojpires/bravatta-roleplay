@@ -21,7 +21,7 @@
         require_once __DIR__ . '/admin/admin_navbar.php';
     ?>
 
-    <header class="navbar-section Z-1000">
+    <header class="navbar-section z-1000">
         <nav class="navbar font-heading">
 
             <div class="md:hidden">
@@ -165,7 +165,7 @@
                 >
                 <span class="text-4xl text-[var(--color-primary)] font-heading mb-5">Junta-te a Nós</span>
                 <p class="text-base text-[var(--color-contrast)] font-body text-center mb-5 md:max-w-[75%]">Vem fazer parte da nossa comunidade e aventura-te no nosso RP!</p>
-                <a href="#" class="text-white bg-[var(--color-heading)] hover:bg-[var(--color-accent)] focus:ring-4 font-body rounded-lg px-7 py-4.5">Vê o nosso jogo!</a>
+                <a href="#" class="text-white bg-[var(--color-heading)] hover:bg-[var(--color-accent)] focus:ring-4 font-body transition rounded-lg px-7 py-4.5">Vê o nosso jogo!</a>
             </div>
         </section>
 

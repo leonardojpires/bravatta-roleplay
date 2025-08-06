@@ -1,4 +1,4 @@
-<footer class="footer-section py-5">
+<footer class="w-full footer-section py-5">
     <div class="w-full max-w-[1200px] mx-auto">
         <div class="flex flex-col justify-center items-center gap-2 md:flex-row md:gap-5">
             <a href="/home">Início</a>

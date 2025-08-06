@@ -60,7 +60,7 @@
 
         <main class="main-section pt-36 max-w-[720px] px-5 py-20 mx-auto flex flex-col items-center">
 
-            <h1 class="text-5xl text-[var(--color-primary)] font-heading mb-10">Publicar uma nova notícia</h1>
+            <h1 class="text-5xl text-center text-[var(--color-primary)] font-heading mb-10">Publicar uma nova notícia</h1>
 
             <section class="w-full">
                 <div class="flex flex-col backdrop-blur-md bg-white/10 border border-white/30 rounded-2xl p-8 w-full shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]">
@@ -71,13 +71,16 @@
                         <label for="description" class="input-label font-body">Descrição</label>
                         <textarea name="description" id="description" class="input font-body mb-5"></textarea>
 
-                        <label for="image" class="cursor-pointer bg-white/10 hover:bg-white/20 border border-white/30 px-4 py-2 rounded-lg shadow-md transition-all inline-flex items-center gap-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1M12 12v8m0-8l3 3m-3-3l-3 3M4 8V6a2 2 0 012-2h12a2 2 0 012 2v2" />
-                                </svg>
-                                <span class="text-[var(--color-text-light)] font-body">Escolher Imagem</span>
-                        </label>
-                        <input type="file" name="image_path" id="image" class="hidden">
+                        <div class="flex items-center gap-4">
+                            <label for="image" class="cursor-pointer bg-white/10 hover:bg-white/20 border border-white/30 px-4 py-2 rounded-lg shadow-md transition-all inline-flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1M12 12v8m0-8l3 3m-3-3l-3 3M4 8V6a2 2 0 012-2h12a2 2 0 012 2v2" />
+                                    </svg>
+                                    <span class="text-[var(--color-text-light)] font-body">Escolher Imagem</span>
+                                    <span id="file-name" class="text-[var(--color-text-light)] font-body"></span>
+                            </label> 
+                        </div>
+                        <input type="file" name="image_path" id="image" accept="image/*" class="hidden">
 
                         <input type="submit" value="Publicar" class="input-submit font-body mt-5">
                     </form>
@@ -86,11 +89,44 @@
 
         </main>
 
+    <?php if (isset($_SESSION['success'])): ?>
+
+        <div id="successAlert" class="fixed left-5 bottom-5 bg-green-500/20 border-2 border-green-700/50 rounded-lg">
+            <div class="flex flex-row items-center gap-10 p-5">
+                <div class="flex flex-row items-center gap-2">
+                    <span class="text-3xl text-transparent" style="text-shadow: 0 0 0 rgb(26, 232, 77)">&#10004;</span>
+                    <p class="text-green-200 font-body"><?= $_SESSION['success'] ?? 'Succes Test'; ?></p>
+                </div>
+                <button id="successClose" class="text-transparent cursor-pointer" style="text-shadow: 0 0 0 rgb(26, 232, 77, 0.5)">&#10006;</button>
+            </div>
+        </div>
+
+        <?php unset($_SESSION['success']); ?>
+    <?php endif; ?>
+        
     </body>
     <script src="./js/toggle_menu.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const rellax = new Rellax('[data-rellax-speed]');
+            const fileInput = document.getElementById('image');
+            const fileNameDisplay = document.getElementById('file-name');
+
+            const successAlert = document.getElementById('successAlert');
+            const successClose = document.getElementById('successClose');
+
+            fileInput.addEventListener('change', function() {
+                if (fileInput.files.length > 0) {
+                    fileNameDisplay.textContent = fileInput.files[0].name;
+                } else {
+                    fileNameDisplay.textContent = '';
+                }
+            });
+
+            if (successAlert && successClose) {
+                    successClose.addEventListener('click', () => {
+                    successAlert.classList.add('hidden');
+                });
+            }
         });
     </script>
 </html>
