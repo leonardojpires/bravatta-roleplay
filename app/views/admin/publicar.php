@@ -90,29 +90,17 @@
         </main>
 
     <?php if (isset($_SESSION['success'])): ?>
-
-        <div id="successAlert" class="fixed left-5 bottom-5 bg-green-500/20 border-2 border-green-700/50 rounded-lg">
-            <div class="flex flex-row items-center gap-10 p-5">
-                <div class="flex flex-row items-center gap-2">
-                    <span class="text-3xl text-transparent" style="text-shadow: 0 0 0 rgb(26, 232, 77)">&#10004;</span>
-                    <p class="text-green-200 font-body"><?= $_SESSION['success'] ?? 'Succes Test'; ?></p>
-                </div>
-                <button id="successClose" class="text-transparent cursor-pointer" style="text-shadow: 0 0 0 rgb(26, 232, 77, 0.5)">&#10006;</button>
-            </div>
-        </div>
-
-        <?php unset($_SESSION['success']); ?>
+        <?php require_once __DIR__ . '/../components/success_alert.php' ?>
     <?php endif; ?>
-        
+    
     </body>
     <script src="./js/toggle_menu.js"></script>
+    <script src="./js/alerts.js"></script>
     <script>
+
         document.addEventListener("DOMContentLoaded", () => {
             const fileInput = document.getElementById('image');
             const fileNameDisplay = document.getElementById('file-name');
-
-            const successAlert = document.getElementById('successAlert');
-            const successClose = document.getElementById('successClose');
 
             fileInput.addEventListener('change', function() {
                 if (fileInput.files.length > 0) {
@@ -121,12 +109,7 @@
                     fileNameDisplay.textContent = '';
                 }
             });
-
-            if (successAlert && successClose) {
-                    successClose.addEventListener('click', () => {
-                    successAlert.classList.add('hidden');
-                });
-            }
         });
+
     </script>
 </html>

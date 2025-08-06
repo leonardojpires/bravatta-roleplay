@@ -60,7 +60,7 @@ class NewsController {
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute(['id' => $id]);
 
-            $_SESSION['message'] = 'Notícia eliminada com sucesso!';
+            $_SESSION['success'] = 'Notícia eliminada com sucesso!';
 
             header('Location: /noticias');
             exit;

@@ -20,7 +20,8 @@ class AdminController {
             $password = $_POST['publisher_password'] ?? '';
 
             if (strlen($password) < 8) {
-                echo "A password deve ter pelo menos 8 caracteres!";
+                $_SESSION['error'] = 'A password deve ter pelo menos 8 caracteres!';
+                header('Location: /dashboard');
                 exit;
             }
 
@@ -35,6 +36,8 @@ class AdminController {
                 'token' => $token,
                 'password' => $password
             ];
+
+            $_SESSION['success'] = 'Publisher criado com sucesso!';
 
             header('Location: /dashboard');
             exit;
@@ -54,6 +57,8 @@ class AdminController {
             $sql = "DELETE FROM admins WHERE id = :id AND role = 'publisher'";
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute(['id' => $id]);
+
+            $_SESSION['success'] = 'Publisher apagado com sucesso!';
 
             header('Location: /dashboard');
             exit;

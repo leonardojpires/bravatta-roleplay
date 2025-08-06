@@ -112,8 +112,19 @@
 
     </main>
 
+    <?php
+        $alerts = ['success', 'error'];
+
+        foreach($alerts as $type) {
+            if (isset($_SESSION[$type])) {
+                require_once __DIR__ . "/../components/{$type}_alert.php";
+            }
+        }
+    ?>
+
 </body>
 <script src="./js/toggle_menu.js"></script>
+<script src="./js/alerts.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const rellax = new Rellax('[data-rellax-speed]');
