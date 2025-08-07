@@ -1,18 +1,27 @@
 <?php
 
-require_once __DIR__ . '/../controllers/AdminController.php';
-require_once __DIR__ . '/../controllers/NewsController.php';
+session_start();
+
+$controllers = ['AdminController', 'NewsController', 'EmailController'];
+
+foreach($controllers as $controller) {
+    require_once __DIR__ . "/../controllers/{$controller}.php";
+}
+
 $pdo = new PDO('mysql:host=localhost;dbname=bravatta', 'root', 'root');
 $adminController = new AdminController($pdo);
 $newsController = new NewsController($pdo);
+$emailController = new EmailController();   
 
 class Router {
     private $adminController;
     private $newsController;
+    private $emailController;
 
-    public function __construct(AdminController $adminController, NewsController $newsController) {
+    public function __construct(AdminController $adminController, NewsController $newsController, EmailController $emailController) {
         $this->adminController = $adminController;
         $this->newsController = $newsController;
+        $this->emailController = $emailController;
     }
 
     public function handleRequest() {
@@ -59,6 +68,11 @@ class Router {
             case 'admin/delete-news':
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $this->newsController->deleteNews();
+                    break;
+                }
+            case 'contacto/enviar':
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $this->emailController->send();
                     break;
                 }
             case '/logout':

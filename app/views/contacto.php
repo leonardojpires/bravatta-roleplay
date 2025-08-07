@@ -74,7 +74,7 @@
             <div class="max-w-[720px] mx-auto">
                 <div class="card flex flex-col !py-10">
                     <h3 class="h3 font-body">Envia a tua mensagem</h3>
-                    <form action="" class="flex flex-col gap-5">
+                    <form action="/contacto/enviar" method="POST" class="flex flex-col gap-5">
                         <div class="flex flex-col gap-2">
                             <label for="nome" class="input-label !text-[var(--color-background)]">Nome</label>
                             <input type="text" name="nome" id="nome" placeholder="John Doe" class="input" style="box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;">
