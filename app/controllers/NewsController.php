@@ -16,14 +16,16 @@ class NewsController {
 
         /* BASIC VALIDATION */
         if (!$title || !$description || !$image) {
-            echo "Todos os campos devem estar preenchidos corretamente.";
-            return;
+            $_SESSION['error'] = 'Todos os campos devem estar devidamente preenchidos!';
+            header('Location: /publicar');
+            exit;
         }
 
         /* UPLOAD ERROR HANDLING */
         if ($image['error'] !== UPLOAD_ERR_OK) {
-            echo "Erro ao fazer upload da imagem.";
-            return;
+            $_SESSION['error'] = 'Erro ao fazer upload da imagem!';
+            header('Location: /publicar');
+            exit;
         }
 
         $targetDir = __DIR__ . '/../../public/uploads/';
@@ -35,8 +37,9 @@ class NewsController {
         $targetFile = $targetDir . $imageName;
         
         if (!move_uploaded_file($image['tmp_name'], $targetFile)) {
-            echo "Erro ao guardar imagem";
-            return;
+            $_SESSION['error'] = 'Erro ao guardar a imagem!';
+            header('Location: /publicar');
+            exit;
         }
         
         $imagePath = '/uploads/' . $imageName;

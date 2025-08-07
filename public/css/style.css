@@ -44,6 +44,8 @@ body {
 
     background-position: center center;
     background-attachment: fixed;
+
+    height: 100vh;
 }
 
 /* CLASSES */
@@ -219,7 +221,7 @@ body {
 }
 
 .input {
-    @apply w-full px-4 py-2 bg-white/20 border-white/30 placeholder-[var(--color-heading)]/20 text-[var(--color-background)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]
+    @apply w-full px-4 py-2 bg-white/20 border-white/30 placeholder-[var(--color-heading)]/70 text-[var(--color-background)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]
 }
 
 .input-submit {

@@ -18,6 +18,10 @@ class PageController {
         $this->view('noticias');
     }
 
+    public function contacto() {
+        $this->view('contacto');
+    }
+
     public function auth() {
         $this->view('auth/auth');
     }

@@ -284,6 +284,9 @@
   .mb-10 {
     margin-bottom: calc(var(--spacing) * 10);
   }
+  .mb-15 {
+    margin-bottom: calc(var(--spacing) * 15);
+  }
   .flex {
     display: flex;
   }
@@ -305,14 +308,35 @@
   .h-6 {
     height: calc(var(--spacing) * 6);
   }
+  .h-full {
+    height: 100%;
+  }
+  .min-h-screen {
+    min-height: 100vh;
+  }
+  .\!w-25 {
+    width: calc(var(--spacing) * 25) !important;
+  }
+  .\!w-50 {
+    width: calc(var(--spacing) * 50) !important;
+  }
+  .\!w-auto {
+    width: auto !important;
+  }
   .w-5 {
     width: calc(var(--spacing) * 5);
   }
   .w-6 {
     width: calc(var(--spacing) * 6);
   }
+  .w-25 {
+    width: calc(var(--spacing) * 25);
+  }
   .w-\[90\%\] {
     width: 90%;
+  }
+  .w-auto {
+    width: auto;
   }
   .w-full {
     width: 100%;
@@ -331,6 +355,15 @@
   }
   .min-w-full {
     min-width: 100%;
+  }
+  .flex-grow {
+    flex-grow: 1;
+  }
+  .flex-grow-0 {
+    flex-grow: 0;
+  }
+  .flex-grow-1 {
+    flex-grow: 1;
   }
   .border-collapse {
     border-collapse: collapse;
@@ -510,10 +543,10 @@
   .bg-green-500 {
     background-color: var(--color-green-500);
   }
-  .bg-green-500\/20 {
-    background-color: color-mix(in srgb, oklch(72.3% 0.219 149.579) 20%, transparent);
+  .bg-green-500\/50 {
+    background-color: color-mix(in srgb, oklch(72.3% 0.219 149.579) 50%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
-      background-color: color-mix(in oklab, var(--color-green-500) 20%, transparent);
+      background-color: color-mix(in oklab, var(--color-green-500) 50%, transparent);
     }
   }
   .bg-red-500 {
@@ -655,6 +688,9 @@
   }
   .whitespace-nowrap {
     white-space: nowrap;
+  }
+  .\!text-\[var\(--color-background\)\] {
+    color: var(--color-background) !important;
   }
   .text-\[var\(--color-accent\)\] {
     color: var(--color-accent);
@@ -921,6 +957,7 @@ body {
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
+  height: 100vh;
 }
 .navbar-section {
   width: 100%;
@@ -1092,7 +1129,7 @@ body {
   &::placeholder {
     color: var(--color-heading);
     @supports (color: color-mix(in lab, red, red)) {
-      color: color-mix(in oklab, var(--color-heading) 20%, transparent);
+      color: color-mix(in oklab, var(--color-heading) 70%, transparent);
     }
   }
   &:focus {

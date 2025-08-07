@@ -1,13 +1,14 @@
 <?php
 
     $pdo = new PDO('mysql:host=localhost;dbname=bravatta', 'root', 'root');
-    $stmt = $pdo->query("SELECT * FROM news ORDER BY published_at DESC");
+    $sql = "SELECT * FROM news ORDER BY published_at DESC";
+    $stmt = $pdo->query($sql);
     $newsList = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
 <!doctype html>
-<html>
+<html class="h-full">
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +18,7 @@
     <script src="https://cdn.jsdelivr.net/npm/rellax@1.12.1/rellax.min.js"></script>
     <script src="https://unpkg.com/feather-icons"></script>
     </head>
-    <body>
+    <body class="flex flex-col min-h-screen">
 
         <?php 
             require_once __DIR__ . '/admin/admin_navbar.php';
@@ -62,52 +63,43 @@
             </nav>
         </header>
 
-        <main class="main-section">
-
-        <!-- HERO SECTION -->
-            <section class="hero-section pt-24">
-                <div class="flex flex-col justify-center max-w-[720px] px-5 py-20 mx-auto items-center">
-                    <h1 class="text-3xl md:text-4xl text-center leading-[50px] font-heading font-semibold text-[var(--color-primary)] mb-5 md:max-w-[75%]">Notícias do Bravatta</h1>
-                    <p class="text-base text-[var(--color-contrast)] font-body text-center mb-5 md:max-w-[75%]">Fica a par das novidades do nosso RP! Aqui tens acesso às notícias mais recentes do Bravatta, incluíndo atualizações, eventos, novos personagens e muito mais!</p>
-                </div>
-            </section>
-
-            <section class="max-w-[720px] mx-auto mt-15 px-3">
-
-            <!-- NEWS -->
-                <?php foreach($newsList as $news): ?>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
-                        <div class="flex justify-center items-center">
-                            <img src="<?= htmlspecialchars($news['image_path']) ?>" alt="<?= htmlspecialchars($news['title']) ?>">
-                        </div>
-                        <div class="flex flex-col items-center md:items-start">
-                            <h2 class="text-3xl text-[var(--color-secondary)] text-center font-heading mb-3 md:text-left"><?= htmlspecialchars($news['title']) ?></h2>
-                            <p class="text-justify mb-5"><?= htmlspecialchars($news['description']) ?></p>
-                            <div class="flex gap-2 mb-5">
-                                <i data-feather="users" class="w-6 h-6 text-[var(--color-primary)]"></i>
-                                <span class="text-[var(--color-accent)] font-body"><?= htmlspecialchars($news['published_at']) ?></span>
-                            </div>
-
-                            <!-- DELETE NEWS BUTTON -->
-                            <?php if (isset($_SESSION['admin']) && $_SESSION['admin']['role'] === 'admin' || $_SESSION['admin']['role'] === 'publisher'): ?>
-
-                                <button class="open-delete-modal px-4 py-2 bg-[var(--color-secondary)] hover:bg-[var(--color-heading)] text-[var(--color-text-light)] transition rounded-lg cursor-pointer" data-id="<?= $news['id']; ?>">Apagar notícia</button>
-
-                            <?php endif; ?>
-
-                        </div>
+        <div class="flex-grow">
+            <main class="main-section">
+            <!-- HERO SECTION -->
+                <section class="hero-section pt-24">
+                    <div class="flex flex-col justify-center max-w-[720px] px-5 py-20 mx-auto items-center">
+                        <h1 class="text-3xl md:text-4xl text-center leading-[50px] font-heading font-semibold text-[var(--color-primary)] mb-5 md:max-w-[75%]">Notícias do Bravatta</h1>
+                        <p class="text-base text-[var(--color-contrast)] font-body text-center mb-5 md:max-w-[75%]">Fica a par das novidades do nosso RP! Aqui tens acesso às notícias mais recentes do Bravatta, incluíndo atualizações, eventos, novos personagens e muito mais!</p>
                     </div>
-
-                <?php endforeach; ?>
-
-            </section>
-
-        </main>
+                </section>
+                <section class="max-w-[720px] mx-auto mt-15 px-3">
+                <!-- NEWS -->
+                    <?php foreach($newsList as $news): ?>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+                            <div class="flex justify-center items-center">
+                                <img src="<?= htmlspecialchars($news['image_path']) ?>" alt="<?= htmlspecialchars($news['title']) ?>">
+                            </div>
+                            <div class="flex flex-col items-center md:items-start">
+                                <h2 class="text-3xl text-[var(--color-secondary)] text-center font-heading mb-3 md:text-left"><?= htmlspecialchars($news['title']) ?></h2>
+                                <p class="text-justify mb-5"><?= htmlspecialchars($news['description']) ?></p>
+                                <div class="flex gap-2 mb-5">
+                                    <i data-feather="users" class="w-6 h-6 text-[var(--color-primary)]"></i>
+                                    <span class="text-[var(--color-accent)] font-body"><?= htmlspecialchars($news['published_at']) ?></span>
+                                </div>
+                                <!-- DELETE NEWS BUTTON -->
+                                <?php if (isset($_SESSION['admin']) && $_SESSION['admin']['role'] === 'admin' || $_SESSION['admin']['role'] === 'publisher'): ?>
+                                    <button class="open-delete-modal px-4 py-2 bg-[var(--color-secondary)] hover:bg-[var(--color-heading)] text-[var(--color-text-light)] transition rounded-lg cursor-pointer" data-id="<?= $news['id']; ?>">Apagar notícia</button>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </section>
+            </main>
+        </div>
 
         <?php require_once __DIR__ . '/admin/modals/delete_news.php' ?>
 
-        <?php if (isset($_SESSION['admin']) && $_SESSION['admin']['role'] === 'admin' || $_SESSION['admin']['role'] === 'publisher' && isset($_SESSION['success'])): ?>
+        <?php if (isset($_SESSION['admin']) && ($_SESSION['admin']['role'] === 'admin' || $_SESSION['admin']['role'] === 'publisher') && isset($_SESSION['success'])): ?>
             <?php require_once __DIR__ . '/components/success_alert.php' ?>
         <?php endif; ?>
 

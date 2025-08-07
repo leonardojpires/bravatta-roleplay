@@ -89,10 +89,16 @@
 
         </main>
 
-    <?php if (isset($_SESSION['success'])): ?>
-        <?php require_once __DIR__ . '/../components/success_alert.php' ?>
-    <?php endif; ?>
-    
+        <?php
+            $alerts = ['success', 'error'];
+
+            foreach($alerts as $type) {
+                if (isset($_SESSION[$type])) {
+                    require_once __DIR__ . "/../components/{$type}_alert.php";
+                }
+            }
+        ?>
+
     </body>
     <script src="./js/toggle_menu.js"></script>
     <script src="./js/alerts.js"></script>

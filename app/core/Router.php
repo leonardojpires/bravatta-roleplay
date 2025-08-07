@@ -40,7 +40,7 @@ class Router {
         // Creates an instance of the PageController
         $controller = new PageController();
 
-        $allowed_pages = ['home', 'about', 'rules', 'noticias', 'contact', 'auth', 'login', 'logout', 'dashboard', 'admin', 'publicar'];
+        $allowed_pages = ['home', 'about', 'rules', 'noticias', 'contacto', 'auth', 'login', 'logout', 'dashboard', 'admin', 'publicar'];
 
         switch ("$page/$param") {
             case 'admin/create-publisher':
