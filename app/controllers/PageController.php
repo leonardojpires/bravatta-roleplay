@@ -10,8 +10,8 @@ class PageController {
         $this->view('home');
     }
 
-    public function about() {
-        echo "Welcome to the about page!";
+    public function sobre() {
+        $this->view('sobre');
     }
 
     public function noticias() {

@@ -208,6 +208,10 @@ body {
     @apply flex justify-between px-12 py-7 text-[var(--color-heading)] md:justify-center;
 }
 
+.h2 {
+    @apply text-3xl text-[var(--color-secondary)] text-center  mb-3 md:text-left
+}
+
 .h3 {
     @apply text-2xl text-[var(--color-heading)] font-bold mb-3
 }
@@ -226,6 +230,10 @@ body {
 
 .input-submit {
     @apply w-full bg-[var(--color-primary)] hover:bg-[var(--color-heading)] text-[var(--color-text-light)] py-2 rounded-lg transition-colors shadow-md cursor-pointer
+}
+
+.alert {
+    @apply fixed md:left-5 bottom-5 rounded-lg;
 }
 
 .admin-links {

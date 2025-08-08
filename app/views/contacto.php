@@ -21,8 +21,9 @@
             require_once __DIR__ . '/admin/admin_navbar.php';
         ?>
 
-        <header class="navbar-section z-1000">
-            <nav class="navbar font-heading">
+        <!-- NAVBAR -->
+        <header class="navbar-section">
+            <nav class="navbar font-heading z-1000">
 
                 <div class="md:hidden">
                     <a href="/home"><img src="./images/logo/logo.png" alt="Bravatta Logo" width="75" class="cursor-pointer"></a>
@@ -73,9 +74,21 @@
             <section class="mt-15 mb-15">
                 <div class="max-w-[720px] mx-auto">
                     <div class="card flex flex-col !py-10">
-                        <h3 class="h3 font-body">Envia a tua mensagem</h3>
-                        <form action="/contacto/enviar" method="POST" class="flex flex-col gap-5">
-                            <div class="flex flex-col gap-2">
+                        <img
+                            src="./images/icons/phone.png" 
+                            alt="Bravatta Phone" 
+                            class="floating-icons left-[-50px] top-[-50px] rotate-[-10deg]"
+                            data-rellax-speed="1"
+                        >
+                        <img
+                            src="./images/icons/contact.png" 
+                            alt="Bravatta Contact" 
+                            class="floating-icons right-[-70px] bottom-[-50px] rotate-[10deg]"
+                            data-rellax-speed="1"
+                        >
+                        <h3 class="h3 font-body text-center md:text-start">Envia a tua mensagem</h3>
+                        <form action="/contacto/enviar" method="POST" class="flex flex-col gap-5 justify-center items-center md:justify-start md:items-start">
+                            <div class="flex flex-col gap-2 w-full">
                                 <label for="nome" class="input-label !text-[var(--color-background)]">Nome</label>
                                 <input type="text" name="nome" id="nome" placeholder="John Doe" class="input" style="box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;">
                                 
@@ -96,6 +109,8 @@
             </section>
 
         </main>
+
+        
 
     <!-- FOOTER SECTION -->
         <?php require_once __DIR__ . "/components/footer.php"; ?>
