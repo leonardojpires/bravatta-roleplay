@@ -112,6 +112,7 @@
 
     </main>
 
+    <!-- ALERTS -->
     <?php
         $alerts = ['success', 'error'];
 

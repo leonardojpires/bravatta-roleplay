@@ -97,8 +97,10 @@
             </main>
         </div>
 
+        <!-- MODAL -->
         <?php require_once __DIR__ . '/admin/modals/delete_news.php' ?>
 
+        <!-- ALERTS -->
         <?php if (isset($_SESSION['admin']) && ($_SESSION['admin']['role'] === 'admin' || $_SESSION['admin']['role'] === 'publisher') && isset($_SESSION['success'])): ?>
             <?php require_once __DIR__ . '/components/success_alert.php' ?>
         <?php endif; ?>

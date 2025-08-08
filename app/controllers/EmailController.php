@@ -22,15 +22,15 @@ class EmailController {
 
         try {
             $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';
+            $mail->Host = $_ENV['MAIL_HOST'];
             $mail->SMTPAuth = true;
-            $mail->Username = 'leocontacto12@gmail.com';
-            $mail->Password = 'fgfe klmg kqfd gtvt';
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-            $mail->Port = 587;
+            $mail->Username = $_ENV['MAIL_USERNAME'];
+            $mail->Password = $_ENV['MAIL_PASSWORD'];
+            $mail->SMTPSecure = $_ENV['MAIL_ENCRYPTION'];
+            $mail->Port = $_ENV['MAIL_PORT'];
 
             $mail->setFrom($email, $nome);
-            $mail->addAddress('leocontacto12@gmail.com');
+            $mail->addAddress($_ENV['MAIL_TO']);
             $mail->Subject = "Nova mensagem de $nome ($nickname)";
             $mail->Body = "Nome: $nome\nNickname: $nickname\nEmail: $email\nMensagem: $mensagem\n";
 
