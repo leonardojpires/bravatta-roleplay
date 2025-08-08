@@ -1,5 +1,8 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 class EmailController {
     public function send() {
         session_start();
@@ -15,18 +18,26 @@ class EmailController {
             exit;
         }
 
-        $to = "leocontacto12@gmail.com";
-        $subject = "Nova mensagem de $nome ($nickname)";
-        $headers = "From: $email\r\n";
-        $headers .= "Reply-To: $email\r\n";
-        $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+        $mail = new PHPMailer(true);
 
-        $body = "Nome: $nome\nNickname: $nickname\nEmail: $email\nMensagem: $mensagem\n";
+        try {
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'leocontacto12@gmail.com';
+            $mail->Password = 'fgfe klmg kqfd gtvt';
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port = 587;
 
-        if (mail($to, $subject, $body, $headers)) {
+            $mail->setFrom($email, $nome);
+            $mail->addAddress('leocontacto12@gmail.com');
+            $mail->Subject = "Nova mensagem de $nome ($nickname)";
+            $mail->Body = "Nome: $nome\nNickname: $nickname\nEmail: $email\nMensagem: $mensagem\n";
+
+            $mail->send();
             $_SESSION['success'] = 'Mensagem enviada com sucesso!';
-        } else {
-            $_SESSION['error'] = 'Erro ao enviar a mensagem!';
+        } catch(Exception $e) {
+            $_SESSION['error'] = "Erro ao enviar a mensagem {$mail->ErrorInfo}";
         }
 
         header('Location: /contacto');
