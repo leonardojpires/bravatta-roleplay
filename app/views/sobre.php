@@ -156,7 +156,7 @@
                     </div>
                 </section>
 
-                <section class="mt-15 mb-15">
+                <aisde class="mt-15 mb-15">
                     <div class="card ">
                         <div class="flex flex-col items-center md:items-start">
                             <div class="mb-5">
@@ -178,7 +178,7 @@
                             </div>
                         </div>
                     </div>
-                </section>
+            </aside>
 
             </div>
 
