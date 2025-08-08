@@ -75,7 +75,19 @@
 
                 <!-- TEXT CONTENT SECTION -->
                 <section class="mt-15">
-                    <div class="card ">
+                    <div class="card">
+                        <img 
+                            src="./images/icons/heart.png" 
+                            alt="" 
+                            class="floating-icons right-[50px] top-[-50px] rotate-[-10deg]"
+                            data-rellax-speed="1"
+                        >
+                        <img 
+                            src="./images/icons/light.png" 
+                            alt="" 
+                            class="floating-icons left-[-100px] bottom-[-50px] rotate-[10deg]"
+                            data-rellax-speed="1"
+                        >
                         <div class="flex flex-col items-center md:items-start">
                             <div class="mb-10">
                                 <h2 class="h2 font-heading text-center">O que é o Bravatta Roleplay?</h2>
@@ -93,8 +105,21 @@
                     </div>
                 </section>
 
+                
                 <section class="mt-15">
                     <div class="card">
+                        <img 
+                            src="./images/icons/person.png" 
+                            alt="" 
+                            class="floating-icons right-[-50px] top-[100px] rotate-[10deg]"
+                            data-rellax-speed="1"
+                        >
+                        <img 
+                            src="./images/icons/statistics.png" 
+                            alt="" 
+                            class="floating-icons left-[-100px] bottom-[-50px] rotate-[10deg]"
+                            data-rellax-speed="1"
+                        >
                         <div class="flex flex-col ">
                             <h2 class="h2 font-heading text-center">Conhece os nossos CEOs</h2>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5">
