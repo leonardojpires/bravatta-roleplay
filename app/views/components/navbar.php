@@ -2,7 +2,7 @@
 
     <!-- --- MOBILE MENU --- -->
     <div class="md:hidden">
-        <a href="/home"><img src="./images/logo/logo.png" alt="Bravatta Logo" width="75" class="cursor-pointer"></a>
+        <a href="/home"><img src="/images/logo/logo.png" alt="Bravatta Logo" width="75" class="cursor-pointer"></a>
     </div>
 
     <div class="flex flex-col items-end  md:flex-row md:items-center">
@@ -26,7 +26,7 @@
             <a href="/regras" class="underline-hover">Regras</a>
         </div>
         <div>
-        <a href="/home"><img src="./images/logo/logo.png" alt="Bravatta Logo" width="75" class="logo-animation"></a>
+        <a href="/home"><img src="/images/logo/logo.png" alt="Bravatta Logo" width="75" class="logo-animation"></a>
         </div>
         <div class="flex space-x-8">
             <a href="/noticias" class="underline-hover">Notícias</a>

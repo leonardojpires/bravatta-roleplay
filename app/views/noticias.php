@@ -37,30 +37,30 @@
                         <p class="description font-body">Fica a par das novidades do nosso RP! Aqui tens acesso às notícias mais recentes do Bravatta, incluíndo atualizações, eventos, novos personagens e muito mais!</p>
                     </div>
                 </section>
+                
                 <section class="max-w-[720px] mx-auto mt-15 px-3">
                 <!-- NEWS -->
                     <?php foreach($newsList as $news): ?>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
-                            <div class="flex justify-center items-center">
-                                <img src="<?= htmlspecialchars($news['image_path']) ?>" alt="<?= htmlspecialchars($news['title']) ?>">
-                            </div>
-                            <div class="flex flex-col items-center md:items-start">
-                                <h2 class="text-3xl text-[var(--color-secondary)] text-center font-heading mb-3 md:text-left"><?= htmlspecialchars($news['title']) ?></h2>
-                                <p class="text-justify mb-5"><?= htmlspecialchars($news['description']) ?></p>
-                                <div class="flex gap-2 mb-5">
-                                    <i data-feather="clock" class="w-6 h-6 text-[var(--color-primary)]"></i>
-                                    <span class="text-[var(--color-accent)] font-body"><?= htmlspecialchars($news['published_at']) ?></span>
+                        <a href="/noticia/<?= $news['id'] ?>">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+                                <div class="flex justify-center items-center">
+                                    <img src="<?= htmlspecialchars($news['image_path']) ?>" alt="<?= htmlspecialchars($news['title']) ?>">
                                 </div>
-
-                                <!-- DELETE NEWS BUTTON -->
-                                <?php if (isset($_SESSION['admin']) && $_SESSION['admin']['role'] === 'admin' || $_SESSION['admin']['role'] === 'publisher'): ?>
-
-                                    <button class="open-delete-modal px-4 py-2 bg-[var(--color-secondary)] hover:bg-[var(--color-heading)] text-[var(--color-text-light)] transition rounded-lg cursor-pointer" data-id="<?= $news['id']; ?>">&#x1F5D1; Apagar notícia</button>
-
-                                <?php endif; ?>
+                                <div class="flex flex-col items-center md:items-start">
+                                    <h2 class="text-3xl text-[var(--color-secondary)] text-center font-heading mb-3 md:text-left"><?= htmlspecialchars($news['title']) ?></h2>
+                                    <p class="text-justify mb-5"><?= htmlspecialchars($news['description']) ?></p>
+                                    <div class="flex gap-2 mb-5">
+                                        <i data-feather="clock" class="w-6 h-6 text-[var(--color-primary)]"></i>
+                                        <span class="text-[var(--color-accent)] font-body"><?= htmlspecialchars($news['published_at']) ?></span>
+                                    </div>
+                                    <!-- DELETE NEWS BUTTON -->
+                                    <?php if (isset($_SESSION['admin']) && $_SESSION['admin']['role'] === 'admin' || $_SESSION['admin']['role'] === 'publisher'): ?>
+                                        <button class="open-delete-modal px-4 py-2 bg-[var(--color-secondary)] hover:bg-[var(--color-heading)] text-[var(--color-text-light)] transition rounded-lg cursor-pointer" data-id="<?= $news['id']; ?>">&#x1F5D1; Apagar notícia</button>
+                                    <?php endif; ?>
+                                </div>
                             </div>
-                        </div>
+                        </a>
 
                     <?php endforeach; ?>
                 </section>

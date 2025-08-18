@@ -18,8 +18,19 @@ class PageController {
         $this->view('regras');
     }
 
+
     public function noticias() {
         $this->view('noticias');
+    }
+
+    public function noticia($id) {
+        require_once __DIR__ . '/NewsController.php';
+        $pdo = new PDO('mysql:host=localhost;dbname=bravatta', 'root', 'root');
+        $newsController = new NewsController($pdo);
+
+        $id = (int) $id;
+        
+        $this->view('noticia', ['news' => $newsController-> getNewsById($id)]);
     }
 
     public function contacto() {

@@ -488,9 +488,6 @@
   .rounded-lg {
     border-radius: var(--radius-lg);
   }
-  .rounded-xl {
-    border-radius: var(--radius-xl);
-  }
   .border {
     border-style: var(--tw-border-style);
     border-width: 1px;
@@ -502,10 +499,6 @@
   .border-b {
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 1px;
-  }
-  .border-none {
-    --tw-border-style: none;
-    border-style: none;
   }
   .border-\[var\(--color-text-light\)\]\/50 {
     border-color: var(--color-text-light);
@@ -651,6 +644,9 @@
   .pt-24 {
     padding-top: calc(var(--spacing) * 24);
   }
+  .pt-48 {
+    padding-top: calc(var(--spacing) * 48);
+  }
   .text-center {
     text-align: center;
   }
@@ -686,10 +682,6 @@
     font-size: var(--text-sm);
     line-height: var(--tw-leading, var(--text-sm--line-height));
   }
-  .leading-none {
-    --tw-leading: 1;
-    line-height: 1;
-  }
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
@@ -724,9 +716,6 @@
   }
   .text-green-200 {
     color: var(--color-green-200);
-  }
-  .text-red-400 {
-    color: var(--color-red-400);
   }
   .text-transparent {
     color: transparent;
@@ -792,9 +781,6 @@
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
-  .transition-discrete {
-    transition-behavior: allow-discrete;
-  }
   .duration-\[0\.3\] {
     --tw-duration: 0.3;
     transition-duration: 0.3;
@@ -805,13 +791,6 @@
   }
   .\[hostname\:port\] {
     hostname: port;
-  }
-  .group-hover\:text-\[\#1DA1F2\] {
-    &:is(:where(.group):hover *) {
-      @media (hover: hover) {
-        color: #1DA1F2;
-      }
-    }
   }
   .group-hover\:text-\[\#1da1f2\] {
     &:is(:where(.group):hover *) {
@@ -827,34 +806,10 @@
       }
     }
   }
-  .group-hover\:text-\[\#657786\] {
-    &:is(:where(.group):hover *) {
-      @media (hover: hover) {
-        color: #657786;
-      }
-    }
-  }
   .group-hover\:text-\[\#ff0050\] {
     &:is(:where(.group):hover *) {
       @media (hover: hover) {
         color: #ff0050;
-      }
-    }
-  }
-  .group-hover\:text-\[\[\#1da1f2\]\] {
-    &:is(:where(.group):hover *) {
-      @media (hover: hover) {
-        color: [#1da1f2];
-      }
-    }
-  }
-  .hover\:scale-1 {
-    &:hover {
-      @media (hover: hover) {
-        --tw-scale-x: 1%;
-        --tw-scale-y: 1%;
-        --tw-scale-z: 1%;
-        scale: var(--tw-scale-x) var(--tw-scale-y);
       }
     }
   }
@@ -902,20 +857,6 @@
       }
     }
   }
-  .hover\:text-\[\#1DA1F2\] {
-    &:hover {
-      @media (hover: hover) {
-        color: #1DA1F2;
-      }
-    }
-  }
-  .hover\:text-\[\#1da1F2\] {
-    &:hover {
-      @media (hover: hover) {
-        color: #1da1F2;
-      }
-    }
-  }
   .hover\:text-\[\#1da1f2\] {
     &:hover {
       @media (hover: hover) {
@@ -930,13 +871,6 @@
       }
     }
   }
-  .hover\:text-\[\#657786\] {
-    &:hover {
-      @media (hover: hover) {
-        color: #657786;
-      }
-    }
-  }
   .hover\:text-\[\#ff0050\] {
     &:hover {
       @media (hover: hover) {
@@ -948,13 +882,6 @@
     &:hover {
       @media (hover: hover) {
         color: var(--color-contrast);
-      }
-    }
-  }
-  .hover\:text-red-600 {
-    &:hover {
-      @media (hover: hover) {
-        color: var(--color-red-600);
       }
     }
   }
@@ -1506,10 +1433,6 @@ input:-webkit-autofill {
   inherits: false;
   initial-value: 100%;
 }
-@property --tw-leading {
-  syntax: "*";
-  inherits: false;
-}
 @property --tw-font-weight {
   syntax: "*";
   inherits: false;
@@ -1685,20 +1608,9 @@ input:-webkit-autofill {
   syntax: "*";
   inherits: false;
 }
-@property --tw-scale-x {
+@property --tw-leading {
   syntax: "*";
   inherits: false;
-  initial-value: 1;
-}
-@property --tw-scale-y {
-  syntax: "*";
-  inherits: false;
-  initial-value: 1;
-}
-@property --tw-scale-z {
-  syntax: "*";
-  inherits: false;
-  initial-value: 1;
 }
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
@@ -1721,7 +1633,6 @@ input:-webkit-autofill {
       --tw-gradient-from-position: 0%;
       --tw-gradient-via-position: 50%;
       --tw-gradient-to-position: 100%;
-      --tw-leading: initial;
       --tw-font-weight: initial;
       --tw-tracking: initial;
       --tw-shadow: 0 0 #0000;
@@ -1763,9 +1674,7 @@ input:-webkit-autofill {
       --tw-backdrop-sepia: initial;
       --tw-duration: initial;
       --tw-ease: initial;
-      --tw-scale-x: 1;
-      --tw-scale-y: 1;
-      --tw-scale-z: 1;
+      --tw-leading: initial;
     }
   }
 }

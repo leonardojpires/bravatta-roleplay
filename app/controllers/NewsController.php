@@ -55,6 +55,26 @@ class NewsController {
         exit;
     }
 
+    function getNewsById($id) {
+        if (!$id) {
+            header('Location: /noticias');
+            exit;
+        }
+
+        $sql = "SELECT * FROM news WHERE id = :id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        $result = $stmt->fetch();
+
+        if ($result === false) {
+            $_SESSION['error'] = 'Essa notícia não existe!';
+            header('Location: /noticias');
+            exit;
+        } else {
+            return $result;
+        }
+    }
+
     function deleteNews() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['news_id'])) {
             $id = $_POST['news_id'];
