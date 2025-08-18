@@ -128,17 +128,17 @@
                                 <h2 class="h2 font-heading text-center">Onde podes nos encontrar</h2>
                             </div>
                             <div class="flex flex-col gap-3">
-                                <div class="flex gap-3">
-                                    <i class="fab fa-discord w-6 h-6 text-[var(--color-background)] text-2xl"></i>
-                                    <a href="">Discord</a>
+                                <div class="flex gap-3 group hover:text-[#7289da] transition-colors">
+                                    <i class="fab fa-discord w-6 h-6 text-[var(--color-background)] text-2xl group-hover:text-[#7289da]"></i>
+                                    <a href="https://discord.gg/Prmfggjx7Y" target="_blank" class="group-hover:text-[#7289da]"></i>Discord</a>
                                 </div>
-                                <div class="flex gap-3">
-                                    <i class="fab fa-twitter w-6 h-6 text-[var(--color-background)] text-2xl"></i>
-                                    <a href="">Twitter</a>
+                                <div class="flex gap-3 group hover:text-[#1da1f2] transition-colors">
+                                    <i class="fab fa-twitter w-6 h-6 text-[var(--color-background)] text-2xl group-hover:text-[#1da1f2]"></i>
+                                    <a href="" class="group-hover:text-[#1da1f2]">Twitter</a>
                                 </div>
-                                <div class="flex gap-3">
-                                    <i class="fab fa-tiktok w-6 h-6 text-[var(--color-background)] text-2xl"></i>
-                                    <a href="">TikTok</a>
+                                <div class="flex gap-3 group hover:text-[#ff0050] transition-colors">
+                                    <i class="fab fa-tiktok w-6 h-6 text-[var(--color-background)] text-2xl group-hover:text-[#ff0050]"></i>
+                                    <a href="" class="group-hover:text-[#ff0050]">TikTok</a>
                                 </div>
                             </div>
                         </div>
