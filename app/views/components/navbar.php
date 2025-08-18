@@ -1,5 +1,6 @@
 <nav class="navbar font-heading">
 
+    <!-- --- MOBILE MENU --- -->
     <div class="md:hidden">
         <a href="/home"><img src="./images/logo/logo.png" alt="Bravatta Logo" width="75" class="cursor-pointer"></a>
     </div>
@@ -18,7 +19,7 @@
         </div>
     </div>
 
-    <!-- DESKTOP MENU -->
+    <!-- --- DESKTOP MENU --- -->
     <div class="hidden md:flex md:justify-center md:items-center gap-x-10">
         <div class="flex space-x-8">
             <a href="/sobre" class="underline-hover">Sobre Nós</a>
