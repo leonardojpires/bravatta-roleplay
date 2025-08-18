@@ -23,51 +23,16 @@
         ?>
 
         <header class="navbar-section z-1000">
-            <nav class="navbar font-heading">
-
-                <div class="md:hidden">
-                    <a href="/home"><img src="./images/logo/logo.png" alt="Bravatta Logo" width="75" class="cursor-pointer"></a>
-                </div>
-
-                <div class="flex flex-col items-end  md:flex-row md:items-center">
-                    <!-- MOBILE MENU BUTTON -->
-                    <button class="md:hidden" id="menu-toggle">
-                        <i data-feather="menu" class="w-6 h-6 text-[var(--color-primary)]"></i>
-                    </button>
-                        <!-- MOBILE MENU -->
-                    <div class="hidden flex-col space-y-4 mt-4 md:hidden md:mt-0" id="mobile-menu">
-                        <a href="/sobre" class="underline-hover">Sobre Nós</a>
-                        <a href="/regras" class="underline-hover">Regras</a>
-                        <a href="/noticias" class="underline-hover">Notícias</a>
-                        <a href="/contacto" class="underline-hover">Contacto</a>
-                    </div>
-                </div>
-
-                <!-- DESKTOP MENU -->
-                <div class="hidden md:flex md:justify-center md:items-center gap-x-10">
-                    <div class="flex space-x-8">
-                        <a href="/sobre" class="underline-hover">Sobre Nós</a>
-                        <a href="/regras" class="underline-hover">Regras</a>
-                    </div>
-                    <div>
-                    <a href="/home"><img src="./images/logo/logo.png" alt="Bravatta Logo" width="75" class="logo-animation"></a>
-                    </div>
-                    <div class="flex space-x-8">
-                        <a href="/noticias" class="underline-hover">Notícias</a>
-                        <a href="/contacto" class="underline-hover">Contacto</a>
-                    </div>
-                </div>
-
-            </nav>
+            <?php require_once __DIR__ . '/components/navbar.php'; ?>
         </header>
 
         <main class="main-section">
 
             <!-- HERO SECTION -->
                 <section class="hero-section pt-24">
-                    <div class="flex flex-col justify-center max-w-[720px] px-5 py-20 mx-auto items-center">
-                        <h1 class="text-3xl md:text-4xl text-center leading-[50px] font-heading font-semibold text-[var(--color-primary)] mb-5 md:max-w-[75%]">Todas as Regras do Bravatta</h1>
-                        <p class="text-base text-[var(--color-contrast)] font-body text-center mb-5 md:max-w-[75%]">Descobre o que podes e o que não podes fazer!</p>
+                    <div class="hero-wrapper">
+                        <h1 class="title font-heading">Todas as Regras do Bravatta</h1>
+                        <p class="description font-body">Descobre o que podes e o que não podes fazer!</p>
                     </div>
                 </section>
 

@@ -22,51 +22,16 @@
     ?>
 
     <header class="navbar-section z-1000">
-        <nav class="navbar font-heading">
-
-            <div class="md:hidden">
-                <a href="/home"><img src="./images/logo/logo.png" alt="Bravatta Logo" width="75" class="cursor-pointer"></a>
-            </div>
-
-            <div class="flex flex-col items-end  md:flex-row md:items-center">
-                <!-- MOBILE MENU BUTTON -->
-                <button class="md:hidden" id="menu-toggle">
-                    <i data-feather="menu" class="w-6 h-6 text-[var(--color-primary)]"></i>
-                </button>
-                    <!-- MOBILE MENU -->
-                <div class="hidden flex-col space-y-4 mt-4 md:hidden md:mt-0" id="mobile-menu">
-                    <a href="/sobre" class="underline-hover">Sobre Nós</a>
-                    <a href="/regras" class="underline-hover">Regras</a>
-                    <a href="/noticias" class="underline-hover">Notícias</a>
-                    <a href="/contacto" class="underline-hover">Contacto</a>
-                </div>
-            </div>
-
-            <!-- DESKTOP MENU -->
-            <div class="hidden md:flex md:justify-center md:items-center gap-x-10">
-                <div class="flex space-x-8">
-                    <a href="/sobre" class="underline-hover">Sobre Nós</a>
-                    <a href="/regras" class="underline-hover">Regras</a>
-                </div>
-                <div>
-                <a href="/home"><img src="./images/logo/logo.png" alt="Bravatta Logo" width="75" class="logo-animation"></a>
-                </div>
-                <div class="flex space-x-8">
-                    <a href="/noticias" class="underline-hover">Notícias</a>
-                    <a href="/contacto" class="underline-hover">Contacto</a>
-                </div>
-            </div>
-
-        </nav>
+        <?php require_once __DIR__ . '/components/navbar.php'; ?>
     </header>
 
     <main class="main-section">
 
     <!-- HERO SECTION -->
         <section class="hero-section pt-24">
-            <div class="flex flex-col justify-center max-w-[720px] px-5 py-20 mx-auto items-center">
-                <h1 class="text-3xl md:text-4xl text-center leading-[50px] font-heading font-semibold text-[var(--color-primary)] mb-5 md:max-w-[75%]">Bem-Vindo(a) ao Bravatta Roleplay</h1>
-                <p class="text-base text-[var(--color-contrast)] font-body text-center mb-5 md:max-w-[75%]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat magni numquam enim! Velit optio doloribus veritatis pariatur atque hic distinctio ipsa neque tempore cum? Alias incidunt reprehenderit ut nulla saepe?</p>
+            <div class="hero-wrapper">
+                <h1 class="title font-heading">Bem-Vindo(a) ao Bravatta Roleplay</h1>
+                <p class="description font-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat magni numquam enim! Velit optio doloribus veritatis pariatur atque hic distinctio ipsa neque tempore cum? Alias incidunt reprehenderit ut nulla saepe?</p>
                 <div class="flex gap-2">
                     <i data-feather="users" class="w-6 h-6 text-[var(--color-primary)]"></i>
                     <span class="text-[var(--color-accent)] font-body">+ 100 jogadores</span>
@@ -89,7 +54,7 @@
                     <div class="flex flex-col items-center md:items-start">
                         <h2 class="text-3xl text-[var(--color-secondary)] text-center font-heading mb-3 md:text-left">Um pouco sobre nós</h2>
                         <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos possimus ipsam quidem temporibus laboriosam, sit sint consequatur non quod aut hic inventore, facere, laudantium nam? Fugiat maiores amet repudiandae aut?</p>
-                        <span class="mt-5"><a href="/sobre" class="text-white bg-[var(--color-heading)] hover:bg-[var(--color-accent)] focus:ring-4 font-body rounded-lg px-5 py-2.5">Descobre mais sobre nós &rarr;</a></span>
+                        <span class="mt-5"><a href="/sobre" class="text-white bg-[var(--color-heading)] hover:bg-[var(--color-accent)] focus:ring-4 font-body rounded-lg px-5 py-2.5 transition">Descobre mais sobre nós &rarr;</a></span>
                     </div>
                     <div class="flex justify-center items-center">
                         <img src="https://dummyimage.com/300x300/000/fff" alt="">
@@ -114,7 +79,7 @@
                     <div class="order-1 md:order-2 flex flex-col items-center md:items-start">
                         <h2 class="text-3xl text-[var(--color-secondary)] text-center font-heading mb-3">Por quê jogar aqui?</h2>
                         <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos possimus ipsam quidem temporibus laboriosam, sit sint consequatur non quod aut hic inventore, facere, laudantium nam? Fugiat maiores amet repudiandae aut?</p>
-                        <span class="mt-5"><a href="/regras" class="text-white bg-[var(--color-heading)] hover:bg-[var(--color-accent)] focus:ring-4 font-body rounded-lg px-5 py-2.5">Vê as regras &rarr;</a></span>
+                        <span class="mt-5"><a href="/regras" class="text-white bg-[var(--color-heading)] hover:bg-[var(--color-accent)] focus:ring-4 font-body rounded-lg px-5 py-2.5 transition">Vê as regras &rarr;</a></span>
                     </div>
                 </div>
             </div>

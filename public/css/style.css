@@ -208,6 +208,18 @@ body {
     @apply flex justify-between px-12 py-7 text-[var(--color-heading)] md:justify-center;
 }
 
+.hero-wrapper {
+    @apply flex flex-col justify-center max-w-[720px] px-5 py-20 mx-auto items-center;
+}
+
+.title {
+    @apply text-3xl md:text-4xl text-center leading-[50px] font-semibold text-[var(--color-primary)] mb-5 md:max-w-[75%];
+}
+
+.description {
+    @apply text-base text-[var(--color-contrast)] text-center mb-5 md:max-w-[75%];
+}
+
 .h2 {
     @apply text-3xl text-[var(--color-secondary)] text-center  mb-3 md:text-left
 }
