@@ -117,7 +117,7 @@
                         <img 
                             src="./images/icons/statistics.png" 
                             alt="" 
-                            class="floating-icons left-[-100px] bottom-[-50px] rotate-[10deg]"
+                            class="floating-icons left-[-50px] bottom-[-50px] rotate-[-10deg]"
                             data-rellax-speed="1"
                         >
                         <div class="flex flex-col ">
@@ -151,12 +151,12 @@
                             <img src="https://dummyimage.com/350x350/000/fff" alt="">
                         </div>
                         <div>
-                            <span class="mt-5"><a href="/sobre" class="text-white bg-[var(--color-heading)] hover:bg-[var(--color-accent)] focus:ring-4 font-body rounded-lg px-5 py-2.5">Descobre mais sobre nós &rarr;</a></span>
+                            <span class="mt-5"><a href="/regras" class="text-white bg-[var(--color-heading)] hover:bg-[var(--color-accent)] focus:ring-4 font-body rounded-lg px-5 py-2.5 transition">Vê as regras &rarr;</a></span>
                         </div>
                     </div>
                 </section>
 
-                <aisde class="mt-15 mb-15">
+                <aside class="mt-15 mb-15">
                     <div class="card ">
                         <div class="flex flex-col items-center md:items-start">
                             <div class="mb-5">

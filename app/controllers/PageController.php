@@ -14,6 +14,10 @@ class PageController {
         $this->view('sobre');
     }
 
+    public function regras() {
+        $this->view('regras');
+    }
+
     public function noticias() {
         $this->view('noticias');
     }
