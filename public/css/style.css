@@ -82,7 +82,6 @@ body {
 .footer-section {
     backdrop-filter: blur(2px);
     background: #333333c4;
-    border-radius: 0.5rem;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     border: 1px solid rgba(255, 255, 255, 0.47);
     padding: 20px;
@@ -221,7 +220,7 @@ body {
 }
 
 .h2 {
-    @apply text-3xl text-[var(--color-secondary)] text-center  mb-3 md:text-left
+    @apply text-3xl text-[var(--color-secondary)] text-center  mb-3 md:text-left;
 }
 
 .h3 {
@@ -253,7 +252,7 @@ body {
 }
 
 .admin-title {
-    @apply text-5xl text-[var(--color-primary)] mb-10;
+    @apply text-4xl md:text-5xl text-[var(--color-primary)] text-center md:text-left mb-10;
 }
 
 .admin-wrapper {

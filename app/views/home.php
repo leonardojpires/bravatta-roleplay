@@ -114,7 +114,7 @@
         </section>
 
     <!-- ACTION SECTION -->
-        <section class="action-section mt-15 py-20">
+        <section class="action-section mt-15 py-20 px-5">
             <div class="w-full max-w-[720px] mx-auto flex flex-col justify-center items-center">
                 <img
                     src="./images/icons/lego.png" 

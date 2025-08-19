@@ -4,7 +4,7 @@
     $sql = "SELECT * FROM news ORDER BY published_at DESC";
     $stmt = $pdo->query($sql);
     $newsList = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+    
 ?>
 
 <!doctype html>
@@ -41,26 +41,29 @@
                 <section class="max-w-[720px] mx-auto mt-15 px-3">
                 <!-- NEWS -->
                     <?php foreach($newsList as $news): ?>
+                        <?php $excerpt = mb_strimwidth($news['description'], 0, 50, '...'); ?>
 
-                        <a href="/noticia/<?= $news['id'] ?>">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
-                                <div class="flex justify-center items-center">
-                                    <img src="<?= htmlspecialchars($news['image_path']) ?>" alt="<?= htmlspecialchars($news['title']) ?>">
-                                </div>
-                                <div class="flex flex-col items-center md:items-start">
-                                    <h2 class="text-3xl text-[var(--color-secondary)] text-center font-heading mb-3 md:text-left"><?= htmlspecialchars($news['title']) ?></h2>
-                                    <p class="text-justify mb-5"><?= htmlspecialchars($news['description']) ?></p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+                            <div class="flex justify-center items-center">
+                                <img src="<?= htmlspecialchars($news['image_path']) ?>" alt="<?= htmlspecialchars($news['title']) ?>">
+                            </div>
+                            <div class="flex flex-col items-center md:items-start">
+                                <a href="/noticia/<?= $news['id'] ?>">
+                                    <h2 class="h2 font-heading break-all"><?= htmlspecialchars($news['title']) ?></h2>
+                                    <p class="text-justify mb-5"><?= htmlspecialchars($excerpt) ?></p>
                                     <div class="flex gap-2 mb-5">
                                         <i data-feather="clock" class="w-6 h-6 text-[var(--color-primary)]"></i>
                                         <span class="text-[var(--color-accent)] font-body"><?= htmlspecialchars($news['published_at']) ?></span>
                                     </div>
-                                    <!-- DELETE NEWS BUTTON -->
-                                    <?php if (isset($_SESSION['admin']) && $_SESSION['admin']['role'] === 'admin' || $_SESSION['admin']['role'] === 'publisher'): ?>
-                                        <button class="open-delete-modal px-4 py-2 bg-[var(--color-secondary)] hover:bg-[var(--color-heading)] text-[var(--color-text-light)] transition rounded-lg cursor-pointer" data-id="<?= $news['id']; ?>">&#x1F5D1; Apagar notícia</button>
-                                    <?php endif; ?>
-                                </div>
+                                </a>
+
+                                <!-- DELETE NEWS BUTTON -->
+                                <?php if (isset($_SESSION['admin']) && $_SESSION['admin']['role'] === 'admin' || $_SESSION['admin']['role'] === 'publisher'): ?>
+                                    <button class="open-delete-modal px-4 py-2 bg-[var(--color-secondary)] hover:bg-[var(--color-heading)] text-[var(--color-text-light)] transition rounded-lg cursor-pointer" data-id="<?= $news['id']; ?>">&#x1F5D1; Apagar notícia</button>
+                                <?php endif; ?>
+
                             </div>
-                        </a>
+                        </div>
 
                     <?php endforeach; ?>
                 </section>

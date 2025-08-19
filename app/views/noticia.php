@@ -1,7 +1,5 @@
 <?php 
     session_start();
-/*     var_dump($_SESSION);
-    exit; */
 ?>
 
 <!doctype html>
@@ -30,7 +28,7 @@
     <!-- HERO SECTION -->
         <section class="hero-section pt-48" style="background-image: url('<?= htmlspecialchars($news['image_path']); ?>')">
             <div class="hero-wrapper">
-                <h1 class="title font-heading"><?= htmlspecialchars($news['title']); ?></h1>
+                <h1 class="title break-all font-heading"><?= htmlspecialchars($news['title']); ?></h1>
             </div>
         </section>
 
