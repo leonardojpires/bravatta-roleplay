@@ -7,7 +7,7 @@ class NewsController {
         $this->pdo = $pdo;
     }
 
-    function createNew() {
+    public function createNew() {
         session_start();
 
         $title = $_POST['title'] ?? '';
@@ -55,7 +55,7 @@ class NewsController {
         exit;
     }
 
-    function getNewsById($id) {
+    public function getNewsById($id) {
         if (!$id) {
             header('Location: /noticias');
             exit;
@@ -75,7 +75,7 @@ class NewsController {
         }
     }
 
-    function deleteNews() {
+    public function deleteNews() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['news_id'])) {
             $id = $_POST['news_id'];
 
