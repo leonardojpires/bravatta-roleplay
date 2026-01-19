@@ -15,7 +15,14 @@ foreach($controllers as $controller) {
     require_once __DIR__ . "/../app/controllers/{$controller}.php";
 }
 
-$pdo = new PDO('mysql:host=localhost;dbname=bravatta', 'root', 'root');
+$dbHost = $_ENV['DB_HOST'] ?? 'localhost';
+$dbName = $_ENV['DB_NAME'] ?? 'bravatta';
+$dbUser = $_ENV['DB_USER'] ?? 'root';
+$dbPass = $_ENV['DB_PASS'] ?? 'root';
+
+$pdo = new PDO("mysql:host={$dbHost};dbname={$dbName};charset=utf8mb4", $dbUser, $dbPass, [
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+]);
 $adminController = new AdminController($pdo);
 $newsController = new NewsController($pdo);
 $emailController = new EmailController();
