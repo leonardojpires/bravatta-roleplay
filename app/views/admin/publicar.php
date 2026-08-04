@@ -23,7 +23,7 @@
             <?php require_once __DIR__ . '/../components/navbar.php'; ?>
         </header>
 
-        <main class="main-section admin-wrapper">
+        <main id="main-content" class="main-section admin-wrapper">
 
             <h1 class="admin-title font-heading">Publicar uma nova notícia</h1>
 
@@ -31,10 +31,10 @@
                 <div class="admin-card">
                     <form action="/admin/publish-news" method="POST" enctype="multipart/form-data" class="flex flex-col gap-2">
                         <label for="title" class="input-label font-body">Título da Notícia</label>
-                        <input type="text" name="title" id="title" class="input font-body">
+                        <input type="text" name="title" id="title" required class="input font-body">
 
                         <label for="description" class="input-label font-body">Descrição</label>
-                        <textarea name="description" id="description" class="input font-body mb-5"></textarea>
+                        <textarea name="description" id="description" required class="input font-body mb-5"></textarea>
 
                         <div class="flex items-center gap-4">
                             <label for="image" class="cursor-pointer bg-white/10 hover:bg-white/20 border border-white/30 px-4 py-2 rounded-lg shadow-md transition-all inline-flex items-center gap-2">
@@ -45,7 +45,7 @@
                                     <span id="file-name" class="text-[var(--color-text-light)] font-body"></span>
                             </label> 
                         </div>
-                        <input type="file" name="image_path" id="image" accept="image/*" class="hidden">
+                        <input type="file" name="image_path" id="image" accept="image/*" required class="sr-only">
 
                         <input type="submit" value="Publicar" class="input-submit font-body mt-5">
                     </form>
@@ -53,6 +53,8 @@
             </section>
 
         </main>
+
+        <?php require_once __DIR__ . "/../components/footer.php"; ?>
 
         <?php
             $alerts = ['success', 'error'];

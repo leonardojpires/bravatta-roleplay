@@ -23,7 +23,7 @@
             <?php require_once __DIR__ . '/components/navbar.php'; ?>
         </header>
 
-        <main class="main-section">
+        <main id="main-content" class="main-section">
 
         <!-- HERO SECTION -->
             <section class="hero-section pt-24">
@@ -52,16 +52,16 @@
                         <form action="/contacto/enviar" method="POST" class="flex flex-col gap-5 justify-center items-center md:justify-start md:items-start">
                             <div class="flex flex-col gap-2 w-full">
                                 <label for="nome" class="input-label !text-[var(--color-background)]">Nome</label>
-                                <input type="text" name="nome" id="nome" placeholder="John Doe" class="input" style="box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;">
+                                <input type="text" name="nome" id="nome" required autocomplete="name" placeholder="John Doe" class="input" style="box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;">
                                 
                                 <label for="nickname" class="input-label !text-[var(--color-background)]">Nickname</label>
-                                <input type="text" name="nickname" id="nickname" placeholder="thejohndoe" class="input" style="box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;">
+                                <input type="text" name="nickname" id="nickname" required autocomplete="nickname" placeholder="thejohndoe" class="input" style="box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;">
 
                                 <label for="email" class="input-label !text-[var(--color-background)]">E-Mail</label>
-                                <input type="email" name="email" id="email" placeholder="johndoe1234@dominio.com" class="input" style="box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;">
+                                <input type="email" name="email" id="email" required autocomplete="email" placeholder="johndoe1234@dominio.com" class="input" style="box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;">
 
                                 <label for="mensagem" class="input-label !text-[var(--color-background)]">A tua mensagem</label>
-                                <textarea name="mensagem" id="mensagem" placeholder="O Bravatta é o melhor RP!" class="input h-40 resize-y" style="box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;"></textarea>
+                                <textarea name="mensagem" id="mensagem" required placeholder="O Bravatta é o melhor RP!" class="input h-40 resize-y" style="box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;"></textarea>
                             </div>
 
                             <input type="submit" value="Enviar" class="input-submit !w-50 px-6">

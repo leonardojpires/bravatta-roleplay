@@ -21,7 +21,7 @@
 
     /* Accent Colors */
     --color-accent: #5A6D7A; /* Cool Gray */
-    --color-contrast: #ffffff87; /* Snow White */
+    --color-contrast: #E2E8F0; /* Accessible light text */
 
     /* -- FONTS -- */
     --font-heading: "Orbitron", sans-serif;
@@ -45,7 +45,16 @@ body {
     background-position: center center;
     background-attachment: fixed;
 
-    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: var(--color-background);
+    font-family: var(--font-body);
+}
+
+.main-section {
+    flex: 1 0 auto;
+    min-width: 0;
 }
 
 /* CLASSES */
@@ -57,7 +66,7 @@ body {
     backdrop-filter: blur(10px);
     background: #0d1b2430;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    z-index: 100;
+    z-index: 1000;
 }
 
 .hero-section {
@@ -85,6 +94,8 @@ body {
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     border: 1px solid rgba(255, 255, 255, 0.47);
     padding: 20px;
+    margin-top: auto;
+    flex-shrink: 0;
 }
 
 .footer-section a {
@@ -94,7 +105,7 @@ body {
 }
 
 .footer-section a:hover {
-    color: var(--color-heading);
+    color: var(--color-primary);
     transition: 0.3s;
 }
 
@@ -109,6 +120,68 @@ body {
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     border: 1px solid rgba(255, 255, 255, 0.47);
     padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 3px;
+}
+
+.skip-link {
+    position: fixed;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 2000;
+    padding: 0.65rem 1rem;
+    border-radius: 0.5rem;
+    color: var(--color-background);
+    background: var(--color-primary);
+    transform: translateY(-150%);
+    transition: transform 0.2s;
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+.admin-action {
+    position: relative;
+}
+
+.admin-action::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    right: calc(100% + 0.75rem);
+    top: 50%;
+    transform: translateY(-50%);
+    width: max-content;
+    max-width: 12rem;
+    padding: 0.4rem 0.65rem;
+    border-radius: 0.35rem;
+    color: var(--color-text-light);
+    background: #071117;
+    font-size: 0.8rem;
+    line-height: 1.2;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+}
+
+.admin-action:hover::after,
+.admin-action:focus-visible::after,
+.admin-action:focus-within::after {
+    opacity: 1;
 }
 
 /* .card-divs {
@@ -201,10 +274,14 @@ body {
     width: 100%;
 }
 
+.underline-hover:focus-visible::before {
+    width: 100%;
+}
+
 /* TAILWIND CSS CLASSES */
 
 .navbar {
-    @apply flex justify-between px-12 py-7 text-[var(--color-heading)] md:justify-center;
+    @apply flex justify-between px-4 py-4 text-[var(--color-primary)] md:px-12 md:py-7 md:justify-center;
 }
 
 .hero-wrapper {
@@ -278,4 +355,79 @@ input:-webkit-autofill {
   box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0.1) inset !important;
   -webkit-text-fill-color: var(--color-text-white) !important;
   transition: background-color 5000s ease-in-out 0s;
+}
+
+@media (max-width: 767px) {
+    .navbar-section {
+        min-height: 6.7rem;
+    }
+
+    .main-section {
+        padding-top: 6.7rem;
+    }
+
+    .hero-section.pt-24,
+    .hero-section.pt-48 {
+        padding-top: 1.5rem;
+    }
+
+    .hero-wrapper {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    .main-section > section:not(.hero-section):not(.action-section),
+    .main-section > div {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .card {
+        padding: 1rem;
+    }
+
+    .card p,
+    .rules-p {
+        margin-left: 0;
+        text-indent: 0;
+        text-align: left;
+    }
+
+    .title,
+    .admin-title {
+        overflow-wrap: anywhere;
+        line-height: 1.25;
+    }
+
+    .admin-wrapper {
+        padding-top: 8.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .admin-card {
+        padding: 1rem;
+    }
+
+    .admin-action::after {
+        right: 50%;
+        top: auto;
+        bottom: calc(100% + 0.5rem);
+        transform: translateX(50%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+.admin-links a {
+    @apply flex w-full h-full items-center justify-center rounded-full;
 }

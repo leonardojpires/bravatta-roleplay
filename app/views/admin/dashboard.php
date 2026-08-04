@@ -26,7 +26,7 @@
         </header>
 
 
-    <main class="main-section admin-wrapper">
+    <main id="main-content" class="main-section admin-wrapper">
 
         <h1 class="admin-title font-heading">Dashboard</h1>
 
@@ -35,7 +35,7 @@
                 <h2 class="text-2xl text-[var(--color-text-light)] font-body text-center mb-3">Criar um novo publisher</h2>
                 <form action="/admin/create-publisher" method="POST" class="flex flex-col gap-2">
                     <label for="publisher_password" class="input-label font-body !mb-0">Define a password</label>
-                    <input type="text" name="publisher_password" id="publisher_password" required min="8" class="input font-body mb-3">
+                    <input type="password" name="publisher_password" id="publisher_password" required minlength="8" autocomplete="new-password" class="input font-body mb-3">
                     <input type="submit" name="submit" value="Gerar um novo publisher" class="input-submit font-body">
                 </form>
             </div>
@@ -64,7 +64,7 @@
                                     <td class="px-6 max-w-[200px] py-4 overflow-x-auto whitespace-nowrap scrollbar-thin scrollbar-thumb-white/30 scrollbar-track-transparent">
                                         <form action="/admin/delete-publisher" method="POST" class="text-center">
                                             <input type="hidden" name="id" value="<?= $publisher['id']?>">
-                                            <input type="submit" name="delete_publisher" value="X" class="admin-delete">
+                                            <button type="submit" name="delete_publisher" class="admin-delete admin-action min-w-11 min-h-11" data-tooltip="Eliminar publisher" aria-label="Eliminar publisher <?= htmlspecialchars($publisher['id']) ?>">X</button>
                                         </form>
                                     </td>
                                 </tr>
@@ -77,6 +77,8 @@
         </section>
 
     </main>
+
+    <?php require_once __DIR__ . "/../components/footer.php"; ?>
 
     <!-- ALERTS -->
     <?php

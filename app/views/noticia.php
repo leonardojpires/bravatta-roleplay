@@ -23,7 +23,7 @@
         <?php require_once __DIR__ . '/components/navbar.php'; ?>
     </header>
 
-    <main class="main-section">
+    <main id="main-content" class="main-section">
 
     <!-- HERO SECTION -->
         <section class="hero-section pt-48" style="background-image: url('<?= htmlspecialchars($news['image_path']); ?>')">

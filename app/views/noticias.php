@@ -29,7 +29,7 @@
         </header>
 
         <div class="flex-grow">
-            <main class="main-section">
+            <main id="main-content" class="main-section">
             <!-- HERO SECTION -->
                 <section class="hero-section pt-24">
                     <div class="hero-wrapper">
@@ -58,8 +58,8 @@
                                 </a>
 
                                 <!-- DELETE NEWS BUTTON -->
-                                <?php if (isset($_SESSION['admin']) && $_SESSION['admin']['role'] === 'admin' || $_SESSION['admin']['role'] === 'publisher'): ?>
-                                    <button class="open-delete-modal px-4 py-2 bg-[var(--color-secondary)] hover:bg-[var(--color-heading)] text-[var(--color-text-light)] transition rounded-lg cursor-pointer" data-id="<?= $news['id']; ?>">&#x1F5D1; Apagar notícia</button>
+                                <?php if (isset($_SESSION['admin']) && ($_SESSION['admin']['role'] === 'admin' || $_SESSION['admin']['role'] === 'publisher')): ?>
+                                    <button type="button" aria-haspopup="dialog" class="open-delete-modal admin-action px-4 py-2 bg-[var(--color-secondary)] hover:bg-[var(--color-heading)] text-[var(--color-text-light)] transition rounded-lg cursor-pointer" data-tooltip="Eliminar esta notícia" data-id="<?= $news['id']; ?>">&#x1F5D1; Apagar notícia</button>
                                 <?php endif; ?>
 
                             </div>
@@ -92,17 +92,33 @@
             const deleteModal = document.getElementById('deleteNewsModal');
             const closeModalButton = document.getElementById('closeNewsModal');
             const hiddenInput = document.getElementById('delete-news-id');
+            let modalTrigger = null;
             
             deleteButtons.forEach(button => {
                 button.addEventListener('click', () => {
+                    modalTrigger = button;
                     const newsId = button.getAttribute('data-id');
                     hiddenInput.value = newsId;
                     deleteModal.classList.remove('hidden');
+                    closeModalButton.focus();
                 });
             });
 
-            closeModalButton.addEventListener('click', () => {
+            const closeDeleteModal = () => {
                 deleteModal.classList.add('hidden');
+                modalTrigger?.focus();
+            };
+
+            closeModalButton.addEventListener('click', closeDeleteModal);
+
+            deleteModal.addEventListener('click', (event) => {
+                if (event.target === deleteModal) closeDeleteModal();
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && !deleteModal.classList.contains('hidden')) {
+                    closeDeleteModal();
+                }
             });
 
         });

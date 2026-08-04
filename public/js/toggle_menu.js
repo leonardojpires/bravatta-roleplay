@@ -14,8 +14,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
             icon.setAttribute('data-feather', isOpen ? 'menu' : 'x');
             isOpen = !isOpen;
+            btn.setAttribute('aria-expanded', String(isOpen));
+            btn.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
             
             feather.replace();
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && isOpen) {
+                btn.click();
+                btn.focus();
+            }
         });
     }
 })
