@@ -7,6 +7,9 @@ RUN composer install --no-dev --prefer-dist --optimize-autoloader
 
 FROM php:8.2-apache
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
 RUN sed -ri 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/000-default.conf /etc/apache2/apache2.conf \
     && a2enmod rewrite
 RUN docker-php-ext-install pdo pdo_mysql

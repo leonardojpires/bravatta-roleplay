@@ -1,8 +1,10 @@
-<?php  if (isset($_SESSION['admin']) && $_SESSION['admin']['role'] === 'admin' || $_SESSION['admin']['role'] === 'publisher' ) { ?>
+<?php  
+$role = $_SESSION['admin']['role'] ?? null;
+if ($role && ($role === 'admin' || $role === 'publisher')) { ?>
 
     <div class="fixed bottom-5 right-5 flex flex-row gap-3 md:bottom-10 md:right-10 md:flex-col z-100">
 
-        <?php if (isset($_SESSION['admin']) && $_SESSION['admin']['role'] === 'admin') { ?>
+        <?php if ($role === 'admin') { ?>
             <div class="admin-links">
                 <a href="/dashboard" class="hover:text-[var(--color-contrast)] text-center transition duration-[0.3]]">⚙️</a>
             </div>

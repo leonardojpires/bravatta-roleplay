@@ -9,13 +9,21 @@ foreach($controllers as $controller) {
 }
 
 $dbHost = $_ENV['DB_HOST'] ?? 'localhost';
+$dbPort = $_ENV['DB_PORT'] ?? '3306';
 $dbName = $_ENV['DB_NAME'] ?? 'bravatta';
 $dbUser = $_ENV['DB_USER'] ?? 'root';
 $dbPass = $_ENV['DB_PASS'] ?? 'root';
 
-$pdo = new PDO("mysql:host={$dbHost};dbname={$dbName};charset=utf8mb4", $dbUser, $dbPass, [
+$pdoOptions = [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-]);
+];
+
+if (!empty($_ENV['DB_SSL_MODE'])) {
+    $pdoOptions[PDO::MYSQL_ATTR_SSL_CA] = '/etc/ssl/certs/ca-certificates.crt';
+    $pdoOptions[PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT] = false;
+}
+
+$pdo = new PDO("mysql:host={$dbHost};port={$dbPort};dbname={$dbName};charset=utf8mb4", $dbUser, $dbPass, $pdoOptions);
 $adminController = new AdminController($pdo);
 $newsController = new NewsController($pdo);
 $emailController = new EmailController();   
@@ -93,7 +101,7 @@ class Router {
             // Calls the method corresponding to the requested page
             $controller->$page($param);
         } else {
-            // If the method does'nt exists, return a 404 error and display a "Page not found" message
+            // If the method doesn't exists, return a 404 error and display a "Page not found" message
             http_response_code(404);
             echo "Page not found.";
         }
