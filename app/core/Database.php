@@ -12,13 +12,12 @@ class Database
 
         $pdoOptions = [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::MYSQL_ATTR_SSL_CA => dirname(__DIR__, 2) . '/certs/ca.pem',
-            PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => true,
         ];
 
         if (!empty($_ENV['DB_SSL_MODE'])) {
-            $pdoOptions[PDO::MYSQL_ATTR_SSL_CA] = '/etc/ssl/certs/ca-certificates.crt';
-            $pdoOptions[PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT] = false;
+            $pdoOptions[PDO::MYSQL_ATTR_SSL_CA] =
+                $_ENV['DB_SSL_CA'] ?? dirname(__DIR__, 2) . '/certs/ca.pem';
+            $pdoOptions[PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT] = true;
         }
 
         return new PDO(
