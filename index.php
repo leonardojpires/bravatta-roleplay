@@ -1,5 +1,11 @@
 <?php
 
+foreach (['DB_HOST', 'DB_PORT', 'DB_NAME', 'DB_USER', 'DB_PASS'] as $key) {
+    error_log($key . ': ' . (
+        getenv($key) !== false ? 'AVAILABLE' : 'MISSING'
+    ));
+}
+
 session_start();
 
 require_once __DIR__ . '/../vendor/autoload.php';
