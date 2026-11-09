@@ -1,5 +1,5 @@
 <?php
-
+//
 function env(string $key, mixed $default = null): mixed
 {
     $value = getenv($key);
