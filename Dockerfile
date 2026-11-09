@@ -2,7 +2,7 @@
 
 FROM composer:2 AS vendor
 WORKDIR /app
-COPY composer.json ./
+COPY composer.json composer.lock ./
 RUN composer install --no-dev --prefer-dist --optimize-autoloader
 
 FROM php:8.2-apache
