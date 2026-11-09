@@ -22,15 +22,15 @@ class EmailController {
 
         try {
             $mail->isSMTP();
-            $mail->Host = $_ENV['MAIL_HOST'];
+            $mail->Host = env('MAIL_HOST');
             $mail->SMTPAuth = true;
-            $mail->Username = $_ENV['MAIL_USERNAME'];
-            $mail->Password = $_ENV['MAIL_PASSWORD'];
-            $mail->SMTPSecure = $_ENV['MAIL_ENCRYPTION'];
-            $mail->Port = $_ENV['MAIL_PORT'];
+            $mail->Username = env('MAIL_USERNAME');
+            $mail->Password = env('MAIL_PASSWORD');
+            $mail->SMTPSecure = env('MAIL_ENCRYPTION');
+            $mail->Port = env('MAIL_PORT');
 
             $mail->setFrom($email, $nome);
-            $mail->addAddress($_ENV['MAIL_TO']);
+            $mail->addAddress(env('MAIL_TO'));
             $mail->Subject = "Nova mensagem de $nome ($nickname)";
             $mail->Body = "Nome: $nome\nNickname: $nickname\nEmail: $email\nMensagem: $mensagem\n";
 
