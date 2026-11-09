@@ -10,22 +10,6 @@ class Database
         $dbUser = $_ENV['DB_USER'] ?? "root";
         $dbPass = $_ENV['DB_PASS'] ?? "root";
 
-        $debugConfig = [
-            'DB_HOST' => $dbHost,
-            'DB_PORT' => $dbPort,
-            'DB_NAME' => $dbName,
-            'DB_USER' => $dbUser,
-            'DB_PASS' => $dbPass ? '***configured***' : '***empty***',
-            'DB_SSL_MODE' => $_ENV['DB_SSL_MODE'] ?? null,
-        ];
-
-        var_dump($dbHost);
-        var_dump($dbPort);
-        var_dump($dbName);
-        var_dump($dbUser);
-        var_dump($dbPass);
-        exit;
-
         $pdoOptions = [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         ];
