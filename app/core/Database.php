@@ -12,6 +12,8 @@ class Database
 
         $pdoOptions = [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::MYSQL_ATTR_SSL_CA => dirname(__DIR__, 2) . '/certs/ca.pem',
+            PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => true,
         ];
 
         if (!empty($_ENV['DB_SSL_MODE'])) {
