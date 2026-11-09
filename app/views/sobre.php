@@ -1,24 +1,18 @@
-<?php 
+<?php
     session_start();
 /*     var_dump($_SESSION);
     exit; */
 ?>
 
 <!doctype html>
-<html>
+<html lang="pt-PT">
     <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./css/output.css" rel="stylesheet">
-    <title>Bravatta</title>
-    <link href="./css/style.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/rellax@1.12.1/rellax.min.js"></script>
-    <script src="https://unpkg.com/feather-icons"></script>
-    </head>
+<?php $pageTitle = 'Sobre Nós | Bravatta Roleplay'; $pageDescription = 'Conhece o Bravatta Roleplay, a nossa equipa e como começar a tua história na comunidade.'; require __DIR__ . '/components/head.php'; ?>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
     <body>
 
-        <?php 
+        <?php
             require_once __DIR__ . '/admin/admin_navbar.php';
         ?>
 
@@ -41,15 +35,15 @@
                 <!-- TEXT CONTENT SECTION -->
                 <section class="mt-15">
                     <div class="card">
-                        <img 
-                            src="./images/icons/heart.png" 
-                            alt="" 
+                        <img
+                            src="./images/icons/heart.png"
+                            alt=""
                             class="floating-icons right-[50px] top-[-50px] rotate-[-10deg]"
                             data-rellax-speed="1"
                         >
-                        <img 
-                            src="./images/icons/light.png" 
-                            alt="" 
+                        <img
+                            src="./images/icons/light.png"
+                            alt=""
                             class="floating-icons left-[-100px] bottom-[-50px] rotate-[10deg]"
                             data-rellax-speed="1"
                         >
@@ -70,18 +64,18 @@
                     </div>
                 </section>
 
-                
+
                 <section class="mt-15">
                     <div class="card">
-                        <img 
-                            src="./images/icons/person.png" 
-                            alt="" 
+                        <img
+                            src="./images/icons/person.png"
+                            alt=""
                             class="floating-icons right-[-50px] top-[100px] rotate-[10deg]"
                             data-rellax-speed="1"
                         >
-                        <img 
-                            src="./images/icons/statistics.png" 
-                            alt="" 
+                        <img
+                            src="./images/icons/statistics.png"
+                            alt=""
                             class="floating-icons left-[-50px] bottom-[-50px] rotate-[-10deg]"
                             data-rellax-speed="1"
                         >
@@ -92,7 +86,7 @@
                                     <img src="https://dummyimage.com/300x300/000/fff" alt="">
                                 </div>
                                 <div class="order-1 md:order-2 flex flex-col items-center md:items-start">
-                                    <h3 class="text-3xl text-[var(--color-secondary)] text-center font-heading mb-3">Sunny</h2>
+                                    <h3 class="text-3xl text-[var(--color-secondary)] text-center font-heading mb-3">Sunny</h3>
                                     <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos possimus ipsam quidem temporibus laboriosam, sit sint consequatur non quod aut hic inventore, facere, laudantium nam? Fugiat maiores amet repudiandae aut?</p>
                                 </div>
                             </div>
@@ -101,7 +95,7 @@
                                     <img src="https://dummyimage.com/300x300/000/fff" alt="">
                                 </div>
                                 <div class="order-1 md:order-2 flex flex-col items-center md:items-start">
-                                    <h3 class="text-3xl text-[var(--color-secondary)] text-center font-heading mb-3">Pedrozy</h2>
+                                    <h3 class="text-3xl text-[var(--color-secondary)] text-center font-heading mb-3">Pedrozy</h3>
                                     <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos possimus ipsam quidem temporibus laboriosam, sit sint consequatur non quod aut hic inventore, facere, laudantium nam? Fugiat maiores amet repudiandae aut?</p>
                                 </div>
                             </div>
@@ -153,10 +147,6 @@
         <?php require_once __DIR__ . "/components/footer.php"; ?>
 
     </body>
-    <script src="./js/toggle_menu.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const rellax = new Rellax('[data-rellax-speed]');
-        });
-    </script>
+
+
 </html>

@@ -1,24 +1,18 @@
-<?php 
+<?php
     session_start();
 /*     var_dump($_SESSION);
     exit; */
 ?>
 
 <!doctype html>
-<html>
+<html lang="pt-PT">
     <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./css/output.css" rel="stylesheet">
-    <title>Bravatta</title>
-    <link href="./css/style.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/rellax@1.12.1/rellax.min.js"></script>
-    <script src="https://unpkg.com/feather-icons"></script>
-    </head>
+<?php $pageTitle = 'Regras | Bravatta Roleplay'; $pageDescription = 'Consulta as regras do Bravatta Roleplay e prepara-te para participar na nossa comunidade.'; require __DIR__ . '/components/head.php'; ?>
+
+</head>
     <body>
 
-        <?php 
+        <?php
             require_once __DIR__ . '/admin/admin_navbar.php';
         ?>
 
@@ -39,15 +33,15 @@
             <div class="max-w-[720px] mx-auto">
                 <section class="mt-15 mb-15">
                     <div class="card">
-                        <img 
-                            src="./images/icons/file.png" 
-                            alt="" 
+                        <img
+                            src="./images/icons/file.png"
+                            alt=""
                             class="floating-icons right-[50px] top-[-50px] rotate-[10deg]"
                             data-rellax-speed="1"
                         >
-                        <img 
-                            src="./images/icons/megaphone.png" 
-                            alt="" 
+                        <img
+                            src="./images/icons/megaphone.png"
+                            alt=""
                             class="floating-icons left-[-100px] bottom-[-50px] rotate-[-10deg]"
                             data-rellax-speed="1"
                         >
@@ -79,10 +73,6 @@
         <?php require_once __DIR__ . "/components/footer.php"; ?>
 
     </body>
-    <script src="./js/toggle_menu.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const rellax = new Rellax('[data-rellax-speed]');
-        });
-    </script>
+
+
 </html>

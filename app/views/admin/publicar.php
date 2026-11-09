@@ -12,7 +12,8 @@
         <link href="./css/style.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/rellax@1.12.1/rellax.min.js"></script>
         <script src="https://unpkg.com/feather-icons"></script>
-        </head>
+        <link href="/css/refinement.css" rel="stylesheet">
+</head>
     <body class="!bg-gradient-to-br from-[#0D1B24] to-[#1F3A4B]">
 
         <?php 

@@ -1,21 +1,16 @@
-<?php 
+<?php
     session_start();
 ?>
 
 <!doctype html>
-<html>
+<html lang="pt-PT">
     <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./css/output.css" rel="stylesheet">
-    <title>Bravatta</title>
-    <link href="./css/style.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/rellax@1.12.1/rellax.min.js"></script>
-    <script src="https://unpkg.com/feather-icons"></script>
-    </head>
+<?php $pageTitle = 'Contacto | Bravatta Roleplay'; $pageDescription = 'Entra em contacto com a equipa do Bravatta Roleplay. Envia as tuas dúvidas e sugestões.'; require __DIR__ . '/components/head.php'; ?>
+
+</head>
     <body>
 
-        <?php 
+        <?php
             require_once __DIR__ . '/admin/admin_navbar.php';
         ?>
 
@@ -37,14 +32,14 @@
                 <div class="max-w-[720px] mx-auto">
                     <div class="card flex flex-col !py-10">
                         <img
-                            src="./images/icons/phone.png" 
-                            alt="Bravatta Phone" 
+                            src="./images/icons/phone.png"
+                            alt="Bravatta Phone"
                             class="floating-icons left-[-50px] top-[-50px] rotate-[-10deg]"
                             data-rellax-speed="1"
                         >
                         <img
-                            src="./images/icons/contact.png" 
-                            alt="Bravatta Contact" 
+                            src="./images/icons/contact.png"
+                            alt="Bravatta Contact"
                             class="floating-icons right-[-70px] bottom-[-50px] rotate-[10deg]"
                             data-rellax-speed="1"
                         >
@@ -53,7 +48,7 @@
                             <div class="flex flex-col gap-2 w-full">
                                 <label for="nome" class="input-label !text-[var(--color-background)]">Nome</label>
                                 <input type="text" name="nome" id="nome" required autocomplete="name" placeholder="John Doe" class="input" style="box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;">
-                                
+
                                 <label for="nickname" class="input-label !text-[var(--color-background)]">Nickname</label>
                                 <input type="text" name="nickname" id="nickname" required autocomplete="nickname" placeholder="thejohndoe" class="input" style="box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;">
 
@@ -72,7 +67,7 @@
 
         </main>
 
-        
+
 
     <!-- FOOTER SECTION -->
         <?php require_once __DIR__ . "/components/footer.php"; ?>
@@ -89,11 +84,7 @@
     ?>
 
     </body>
-    <script src="./js/toggle_menu.js"></script>
+
     <script src="./js/alerts.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const rellax = new Rellax('[data-rellax-speed]');
-        });
-    </script>
+
 </html>

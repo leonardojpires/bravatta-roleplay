@@ -1,21 +1,16 @@
-<?php 
+<?php
     session_start();
 ?>
 
 <!doctype html>
-<html>
+<html lang="pt-PT">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="/css/output.css" rel="stylesheet">
-<title>Bravatta</title>
-<link href="/css/style.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/rellax@1.12.1/rellax.min.js"></script>
-<script src="https://unpkg.com/feather-icons"></script>
+<?php $pageTitle = ($news['title'] ?? 'Notícia') . ' | Bravatta Roleplay'; $pageDescription = mb_strimwidth(strip_tags($news['description'] ?? ''), 0, 160, '…'); require __DIR__ . '/components/head.php'; ?>
+
 </head>
 <body>
 
-    <?php 
+    <?php
         require_once __DIR__ . '/admin/admin_navbar.php';
     ?>
 
@@ -41,17 +36,13 @@
                 </div>
             </div>
         </section>
-        
+
     </main>
 
     <!-- FOOTER SECTION -->
     <?php require_once __DIR__ . "/components/footer.php"; ?>
 
 </body>
-<script src="./js/toggle_menu.js"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const rellax = new Rellax('[data-rellax-speed]');
-    });
-</script>
+
+
 </html>
