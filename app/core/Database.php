@@ -4,11 +4,11 @@ class Database
 {
     public static function connect(): PDO
     {
-        $dbHost = $_ENV['DB_HOST'];
-        $dbPort = $_ENV['DB_PORT'];
-        $dbName = $_ENV['DB_NAME'];
-        $dbUser = $_ENV['DB_USER'];
-        $dbPass = $_ENV['DB_PASS'];
+        $dbHost = $_ENV['DB_HOST'] ?? "localhost";
+        $dbPort = $_ENV['DB_PORT'] ?? 3306;
+        $dbName = $_ENV['DB_NAME'] ?? "bravatta";
+        $dbUser = $_ENV['DB_USER'] ?? "root";
+        $dbPass = $_ENV['DB_PASS'] ?? "root";
 
         $pdoOptions = [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
