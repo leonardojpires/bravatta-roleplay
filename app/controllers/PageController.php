@@ -25,7 +25,7 @@ class PageController {
 
     public function noticia($id) {
         require_once __DIR__ . '/NewsController.php';
-        $pdo = new PDO('mysql:host=localhost;dbname=bravatta', 'root', 'root');
+        $pdo = Database::connect();
         $newsController = new NewsController($pdo);
 
         $id = (int) $id;
@@ -47,7 +47,7 @@ class PageController {
             require_once __DIR__ . '/AuthController.php';
             require_once __DIR__ . '/../models/Admin.php';
             /* Creates a new PDO object with connection to the database */
-            $pdo = new PDO('mysql:host=localhost;dbname=bravatta', 'root', 'root');
+            $pdo = Database::connect();
 
             /* Creates an instance of the AuthController */
             $auth = new AuthController($pdo);
@@ -59,14 +59,14 @@ class PageController {
 
     public function logout() {
         require_once __DIR__ . '/AdminController.php';
-        $pdo = $pdo = new PDO('mysql:host=localhost;dbname=bravatta', 'root', 'root');
+        $pdo = Database::connect();
         $adminController = new AdminController($pdo);
         $adminController->logout();
     }
 
     public function dashboard() {
         if (isset($_SESSION['admin']) && $_SESSION['admin']['role'] === 'admin') {
-            $pdo = new PDO('mysql:host=localhost;dbname=bravatta', 'root', 'root');
+            $pdo = Database::connect();
             $adminController = new AdminController($pdo);
             $publishers = $adminController->getAllPublishers();
 

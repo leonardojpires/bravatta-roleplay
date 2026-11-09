@@ -1,6 +1,6 @@
 <?php
 
-    $pdo = new PDO('mysql:host=localhost;dbname=bravatta', 'root', 'root');
+    $pdo = Database::connect();
     $sql = "SELECT * FROM news ORDER BY published_at DESC";
     $stmt = $pdo->query($sql);
     $newsList = $stmt->fetchAll(PDO::FETCH_ASSOC);
